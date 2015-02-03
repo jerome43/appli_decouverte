@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/circuit_layout">
+
+    <FrameLayout
+    android:layout_height="0dp"
+    android:layout_width="fill_parent"
+    android:layout_weight="1"
+    android:id="@+id/container_fragment"
+    android:orientation="vertical">
+
+    </FrameLayout>
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:stretchColumns="2"
+        android:id="@+id/table_layout_button_game">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_jeu_petit"
+                android:title="@string/jeuxPetits"
+                android:onClick="lancerJeuPetits"
+                android:text="@string/jeuxPetits" />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/button_jeu_moyen"
+                android:title="@string/jeuxMoyens"
+                android:onClick="lancerJeuMoyens"
+                android:text="@string/jeuxMoyens" />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/button_jeu_grand"
+                android:title="@string/jeuxGrands"
+                android:onClick="lancerJeuGrands"
+                android:text="@string/jeuxGrands" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

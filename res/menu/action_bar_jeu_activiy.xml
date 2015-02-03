@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/refresh_jeu_activity" android:title="@string/refresh_consigne"
+        android:icon="@drawable/ic_action_refresh"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/retour_circuit_activity" android:title="@string/retour_circuit"
+        android:icon="@drawable/ic_action_edit"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/jouer_jeu_activity" android:title="@string/rejouer"
+        android:icon="@drawable/ic_action_photo"
+        android:showAsAction="ifRoom" />
+</menu>

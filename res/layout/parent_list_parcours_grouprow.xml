@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- PARENT, soit les Départements dans la Expandable ListView -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ccc"
+    android:padding="6dip" >
+
+    <TextView
+        android:id="@+id/textName"
+        android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1" android:layout_gravity="left|center_vertical"
+        android:textSize="20dip" android:layout_marginLeft="10dip"
+        android:textStyle="bold"
+        android:padding="@dimen/padding_standard"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandmenu"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right|center_vertical"
+        android:scaleType="centerCrop"
+        android:background="@drawable/ic_action_expand"
+        />
+</RelativeLayout>
+
+
+    <!--TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:background="#ccc"
+        android:stretchColumns="1" android:paddingTop="0dip" android:layout_gravity="top">
+        <TableRow-->
+            <!--ImageView
+                android:id="@+id/image"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/ic_action_done"/-->
+            <!--TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1" android:paddingTop="0dip" android:layout_gravity="top"
+                >
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textName"
+                        android:textColor="#000000"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1" android:layout_gravity="left|center_vertical"
+                        android:textSize="20dip" android:layout_marginLeft="10dip"
+                        android:textStyle="bold"
+                        android:padding="@dimen/padding_standard"/>
+                </TableRow>
+            </TableLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/expandmenu"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|center_vertical"
+                android:scaleType="centerCrop"
+                android:background="@drawable/ic_action_expand"
+                /-->
+            <!--ImageView
+                android:layout_width="25dip"
+                android:id="@+id/rightcheck"
+                android:layout_height="25dip"
+                android:layout_gravity="left|center_vertical"
+                android:scaleType="centerCrop"
+                android:background="@drawable/ic_action_done"
+                /-->
+            <!--CheckBox android:id="@+id/checkbox" android:focusable="false"
+                android:layout_alignParentRight="true" android:freezesText="false"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="5px" /-->
+
+        <!--/TableRow>
+    </TableLayout-->
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_action_bar_circuit_activity">
+    <item android:id="@+id/carte_circuit_activity" android:title="@string/naviguer"
+        android:icon="@drawable/ic_action_locate"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/accueil_circuits_activity" android:title="@string/accueil_circuit"
+        android:icon="@drawable/ic_action_edit"
+        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/previous_etape" android:title="@string/previous_etape"
+        android:icon="@drawable/ic_action_previous_item"
+        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/next_etape"
+        android:title="@string/next_etape"
+        android:icon="@drawable/ic_action_next_item"
+        android:showAsAction="ifRoom"/>
+</menu>

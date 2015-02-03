@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">insensa-decouverte</string>
+    <string name="refresh">refresh</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="contenu_page1">content page 1</string>
+    <string name="contenu_page2">content page 2</string>
+    <string name="contenu_page3">content page 3</string>
+    <string name="jouer">play</string>
+    <string name="naviguer">navigate</string>
+    <string name="location">location</string>
+    <string name="titre">title</string>
+    <string name="description">description</string>
+    <string name="uri_picture">uri_picture</string>
+    <string name="localisation">location</string>
+    <string name="voir_circuits">meteo</string>
+    <string name="listeParcours">parser</string>
+    <string name="search">search route</string>
+    <string name="search_hint">search route</string>
+</resources>

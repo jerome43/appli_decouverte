@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">insensa-decouverte</string>
+    <string name="refresh">actualiser</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
+    <string name="navigation_drawer_close">Fermer le menu de navigation</string>
+    <string name="contenu_page1">contenu page 1</string>
+    <string name="contenu_page2">contenu page 2</string>
+    <string name="contenu_page3">contenu page 3</string>
+    <string name="jouer">jouer</string>
+    <string name="naviguer">naviguer</string>
+    <string name="location">location</string>
+    <string name="titre">titre</string>
+    <string name="description">description</string>
+    <string name="uri_picture">uri_picture</string>
+    <string name="localisation">localisation</string>
+    <string name="voir_circuits">météo</string>
+    <string name="listeParcours">parser</string>
+    <string name="search">chercher parcours</string>
+    <string name="search_hint">chercher parcours</string>
+    <string name="rejouer">Rejouer la partie</string>
+    <string name="refresh_consigne">Relire la consigne</string>
+    <string name="textes_circuit">retour au circuit</string>
+    <string name="retour_circuit">retour au circuit</string>
+    <string name="next_etape">prochaine étape</string>
+    <string name="previous_etape">étape précédente</string>
+    <string name="accueil_circuit">retour accueil circuit</string>
+    <string name="petits">4 – 6 ans</string>
+    <string name="moyens">7 – 9 ans</string>
+    <string name="grands">9 – 12 ans</string>
+    <string name="jeuxGrands">jeux 9–12 ans</string>
+    <string name="jeuxMoyens">jeux 7–9 ans</string>
+    <string name="jeuxPetits">jeux 4–6 ans</string>
+</resources>
