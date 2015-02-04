@@ -21,4 +21,5 @@ public interface ActionResolver {
     public void openUri(String uri);
     public void showView(final int view);
     public void hideView(final int view);
+    public void essai();
 }
