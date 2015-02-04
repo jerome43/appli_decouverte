@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style titre="Base.Theme.AppCompat" parent="Base.V14.Theme.AppCompat">
+        <item titre="android:actionModeCutDrawable">?actionModeCutDrawable</item>
+        <item titre="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
+        <item titre="android:actionModePasteDrawable">?actionModePasteDrawable</item>
+        <item titre="android:actionModeSelectAllDrawable">?actionModeSelectAllDrawable</item>
+        <item titre="android:actionModeShareDrawable">?actionModeShareDrawable</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.Dialog" parent="Base.V14.Theme.AppCompat.Dialog">
+        <item titre="android:actionModeCutDrawable">?actionModeCutDrawable</item>
+        <item titre="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
+        <item titre="android:actionModePasteDrawable">?actionModePasteDrawable</item>
+        <item titre="android:actionModeSelectAllDrawable">?actionModeSelectAllDrawable</item>
+        <item titre="android:actionModeShareDrawable">?actionModeShareDrawable</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.Light" parent="Base.V14.Theme.AppCompat.Light">
+        <item titre="android:actionModeCutDrawable">?actionModeCutDrawable</item>
+        <item titre="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
+        <item titre="android:actionModePasteDrawable">?actionModePasteDrawable</item>
+        <item titre="android:actionModeSelectAllDrawable">?actionModeSelectAllDrawable</item>
+        <item titre="android:actionModeShareDrawable">?actionModeShareDrawable</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.Light.Dialog" parent="Base.V14.Theme.AppCompat.Light.Dialog">
+        <item titre="android:actionModeCutDrawable">?actionModeCutDrawable</item>
+        <item titre="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
+        <item titre="android:actionModePasteDrawable">?actionModePasteDrawable</item>
+        <item titre="android:actionModeSelectAllDrawable">?actionModeSelectAllDrawable</item>
+        <item titre="android:actionModeShareDrawable">?actionModeShareDrawable</item>
+    </style>
+
+    <style titre="Base.V14.Theme.AppCompat" parent="Base.V11.Theme.AppCompat" />
+
+    <style titre="Base.V14.Theme.AppCompat.Dialog" parent="Base.V11.Theme.AppCompat.Dialog" />
+
+    <style titre="Base.V14.Theme.AppCompat.Light" parent="Base.V11.Theme.AppCompat.Light" />
+
+    <style titre="Base.V14.Theme.AppCompat.Light.Dialog" parent="Base.V11.Theme.AppCompat.Light.Dialog" />
+
+</resources>

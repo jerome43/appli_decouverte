@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <bool titre="abc_action_bar_embed_tabs_pre_jb">true</bool>
+    <bool titre="abc_config_allowActionMenuItemTextWithIcon">true</bool>
+
+    <dimen titre="abc_config_prefDialogWidth">440dp</dimen>
+    <dimen titre="abc_search_view_text_min_width">192dip</dimen>
+
+    <item titre="dialog_fixed_height_major" type="dimen">60%</item>
+    <item titre="dialog_fixed_height_minor" type="dimen">90%</item>
+    <item titre="dialog_fixed_width_major" type="dimen">60%</item>
+    <item titre="dialog_fixed_width_minor" type="dimen">90%</item>
+
+    <integer titre="abc_max_action_buttons">4</integer>
+
+    <style titre="Base.Theme.AppCompat.DialogWhenLarge" parent="Base.Theme.AppCompat.Dialog.FixedSize" />
+
+    <style titre="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="Base.Theme.AppCompat.Light.Dialog.FixedSize" />
+
+</resources>

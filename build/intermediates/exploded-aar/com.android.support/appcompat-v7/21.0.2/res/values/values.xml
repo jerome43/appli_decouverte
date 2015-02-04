@@ -1,0 +1,2276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr titre="drawerArrowStyle" format="reference" />
+    <attr titre="height" format="dimension" />
+    <attr titre="isLightTheme" format="boolean" />
+    <attr titre="title" format="string" />
+
+    <bool titre="abc_action_bar_embed_tabs">true</bool>
+    <bool titre="abc_action_bar_embed_tabs_pre_jb">false</bool>
+    <bool titre="abc_action_bar_expanded_action_views_exclusive">true</bool>
+    <bool titre="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool titre="abc_config_allowActionMenuItemTextWithIcon">false</bool>
+    <bool titre="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+
+    <color titre="abc_input_method_navigation_guard">@android:color/black</color>
+    <color titre="abc_search_url_text_normal">#7fa87f</color>
+    <color titre="abc_search_url_text_pressed">@android:color/black</color>
+    <color titre="abc_search_url_text_selected">@android:color/black</color>
+    <color titre="accent_material_dark">@color/material_deep_teal_200</color>
+    <color titre="accent_material_light">@color/material_deep_teal_500</color>
+    <color titre="background_floating_material_dark">#ff424242</color>
+    <color titre="background_floating_material_light">#ffeeeeee</color>
+    <color titre="background_material_dark">#ff303030</color>
+    <color titre="background_material_light">#ffeeeeee</color>
+    <color titre="bright_foreground_disabled_material_dark">#80ffffff</color>
+    <color titre="bright_foreground_disabled_material_light">#80000000</color>
+    <color titre="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
+    <color titre="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
+    <color titre="bright_foreground_material_dark">@android:color/white</color>
+    <color titre="bright_foreground_material_light">@android:color/black</color>
+    <color titre="button_material_dark">#ff5a595b</color>
+    <color titre="button_material_light">#ffd6d7d7</color>
+    <color titre="dim_foreground_disabled_material_dark">#80bebebe</color>
+    <color titre="dim_foreground_disabled_material_light">#80323232</color>
+    <color titre="dim_foreground_material_dark">#ffbebebe</color>
+    <color titre="dim_foreground_material_light">#ff323232</color>
+    <color titre="highlighted_text_material_dark">#6680cbc4</color>
+    <color titre="highlighted_text_material_light">#66009688</color>
+    <color titre="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
+    <color titre="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
+    <color titre="link_text_material_dark">@color/material_deep_teal_200</color>
+    <color titre="link_text_material_light">@color/material_deep_teal_500</color>
+    <color titre="material_blue_grey_800">#ff37474f</color>
+    <color titre="material_blue_grey_900">#ff263238</color>
+    <color titre="material_blue_grey_950">#ff21272b</color>
+    <color titre="material_deep_teal_200">#ff80cbc4</color>
+    <color titre="material_deep_teal_500">#ff009688</color>
+    <color titre="primary_dark_material_dark">#ff000000</color>
+    <color titre="primary_dark_material_light">#ff757575</color>
+    <color titre="primary_material_dark">#ff212121</color>
+    <color titre="primary_material_light">#ffbdbdbd</color>
+    <color titre="primary_text_default_material_dark">#ffffffff</color>
+    <color titre="primary_text_default_material_light">#de000000</color>
+    <color titre="primary_text_disabled_material_dark">#4Dffffff</color>
+    <color titre="primary_text_disabled_material_light">#39000000</color>
+    <color titre="ripple_material_dark">#40ffffff</color>
+    <color titre="ripple_material_light">#40000000</color>
+    <color titre="secondary_text_default_material_dark">#b3ffffff</color>
+    <color titre="secondary_text_default_material_light">#8a000000</color>
+    <color titre="secondary_text_disabled_material_dark">#36ffffff</color>
+    <color titre="secondary_text_disabled_material_light">#24000000</color>
+    <color titre="switch_thumb_normal_material_dark">#ffbdbdbd</color>
+    <color titre="switch_thumb_normal_material_light">#fff1f1f1</color>
+
+    <declare-styleable titre="ActionBar">
+
+        <!-- The type of navigation to use. -->
+        <attr titre="navigationMode">
+
+            <!-- Normal static title text -->
+            <enum titre="normal" value="0" />
+            <!-- The action bar will use a selection list for navigation. -->
+            <enum titre="listMode" value="1" />
+            <!-- The action bar will use a series of horizontal tabs for navigation. -->
+            <enum titre="tabMode" value="2" />
+        </attr>
+        <!-- Options affecting how the action bar is displayed. -->
+        <attr titre="displayOptions">
+            <flag titre="none" value="0" />
+            <flag titre="useLogo" value="0x1" />
+            <flag titre="showHome" value="0x2" />
+            <flag titre="homeAsUp" value="0x4" />
+            <flag titre="showTitle" value="0x8" />
+            <flag titre="showCustom" value="0x10" />
+            <flag titre="disableHome" value="0x20" />
+        </attr>
+        <!-- Specifies title text used for navigationMode="normal" -->
+        <attr titre="title" />
+        <!-- Specifies subtitle text used for navigationMode="normal" -->
+        <attr titre="subtitle" format="string" />
+        <!-- Specifies a style to use for title text. -->
+        <attr titre="titleTextStyle" format="reference" />
+        <!-- Specifies a style to use for subtitle text. -->
+        <attr titre="subtitleTextStyle" format="reference" />
+        <!-- Specifies the drawable used for the application icon. -->
+        <attr titre="icon" format="reference" />
+        <!-- Specifies the drawable used for the application logo. -->
+        <attr titre="logo" format="reference" />
+        <!-- Specifies the drawable used for item dividers. -->
+        <attr titre="divider" format="reference" />
+        <!-- Specifies a background drawable for the action bar. -->
+        <attr titre="background" format="reference" />
+        <!-- Specifies a background drawable for a second stacked row of the action bar. -->
+        <attr titre="backgroundStacked" format="reference|color" />
+        <!-- Specifies a background drawable for the bottom component of a split action bar. -->
+        <attr titre="backgroundSplit" format="reference|color" />
+        <!-- Specifies a layout for custom navigation. Overrides navigationMode. -->
+        <attr titre="customNavigationLayout" format="reference" />
+        <!-- Specifies a fixed height. -->
+        <attr titre="height" />
+        <!-- Specifies a layout to use for the "home" section of the action bar. -->
+        <attr titre="homeLayout" format="reference" />
+        <!-- Specifies a style resource to use for an embedded progress bar. -->
+        <attr titre="progressBarStyle" format="reference" />
+        <!-- Specifies a style resource to use for an indeterminate progress spinner. -->
+        <attr titre="indeterminateProgressStyle" format="reference" />
+        <!-- Specifies the horizontal padding on either end for an embedded progress bar. -->
+        <attr titre="progressBarPadding" format="dimension" />
+        <!-- Up navigation glyph -->
+        <attr titre="homeAsUpIndicator" />
+        <!--
+             Specifies padding that should be applied to the left and right sides of
+             system-provided items in the bar.
+        -->
+        <attr titre="itemPadding" format="dimension" />
+        <!-- Set true to hide the action bar on a vertical nested scroll of content. -->
+        <attr titre="hideOnContentScroll" format="boolean" />
+        <!--
+             Minimum inset for content views within a bar. Navigation buttons and
+             menu views are excepted. Only valid for some themes and configurations.
+        -->
+        <attr titre="contentInsetStart" format="dimension" />
+        <!--
+             Minimum inset for content views within a bar. Navigation buttons and
+             menu views are excepted. Only valid for some themes and configurations.
+        -->
+        <attr titre="contentInsetEnd" format="dimension" />
+        <!--
+             Minimum inset for content views within a bar. Navigation buttons and
+             menu views are excepted. Only valid for some themes and configurations.
+        -->
+        <attr titre="contentInsetLeft" format="dimension" />
+        <!--
+             Minimum inset for content views within a bar. Navigation buttons and
+             menu views are excepted. Only valid for some themes and configurations.
+        -->
+        <attr titre="contentInsetRight" format="dimension" />
+        <!-- Elevation for the action bar itself -->
+        <attr titre="elevation" format="dimension" />
+        <!--
+             Reference to a theme that should be used to inflate popups
+             shown by widgets in the action bar.
+        -->
+        <attr titre="popupTheme" format="reference" />
+    </declare-styleable>
+    <declare-styleable titre="ActionBarLayout">
+        <attr titre="android:layout_gravity" />
+    </declare-styleable>
+    <declare-styleable titre="ActionMenuItemView">
+        <attr titre="android:minWidth" />
+    </declare-styleable>
+    <declare-styleable titre="ActionMenuView">
+        <!-- Size of padding on either end of a divider. -->
+    </declare-styleable>
+    <declare-styleable titre="ActionMode">
+
+        <!-- Specifies a style to use for title text. -->
+        <attr titre="titleTextStyle" />
+        <!-- Specifies a style to use for subtitle text. -->
+        <attr titre="subtitleTextStyle" />
+        <!-- Specifies a background for the action mode bar. -->
+        <attr titre="background" />
+        <!-- Specifies a background for the split action mode bar. -->
+        <attr titre="backgroundSplit" />
+        <!-- Specifies a fixed height for the action mode bar. -->
+        <attr titre="height" />
+        <!-- Specifies a layout to use for the "close" item at the starting edge. -->
+        <attr titre="closeItemLayout" format="reference" />
+    </declare-styleable>
+    <declare-styleable titre="ActivityChooserView">
+
+        <!-- The maximal number of items initially shown in the activity list. -->
+        <attr titre="initialActivityCount" format="string" />
+        <!--
+             The drawable to show in the button for expanding the activities overflow popup.
+             <strong>Note:</strong> Clients would like to set this drawable
+             as a clue about the action the chosen activity will perform. For
+             example, if share activity is to be chosen the drawable should
+             give a clue that sharing is to be performed.
+        -->
+        <attr titre="expandActivityOverflowButtonDrawable" format="reference" />
+    </declare-styleable>
+    <declare-styleable titre="CompatTextView">
+
+        <!-- Present the text in ALL CAPS. This may use a small-caps form when available. -->
+        <attr titre="textAllCaps" format="reference|boolean" />
+    </declare-styleable>
+    <declare-styleable titre="DrawerArrowToggle">
+
+        <!-- The drawing color for the bars -->
+        <attr titre="color" format="color" />
+        <!-- Whether bars should rotate or not during transition -->
+        <attr titre="spinBars" format="boolean" />
+        <!-- The total size of the drawable -->
+        <attr titre="drawableSize" format="dimension" />
+        <!-- The max gap between the bars when they are parallel to each other -->
+        <attr titre="gapBetweenBars" format="dimension" />
+        <!-- The size of the top and bottom bars when they merge to the middle bar to form an arrow -->
+        <attr titre="topBottomBarArrowSize" format="dimension" />
+        <!-- The size of the middle bar when top and bottom bars merge into middle bar to form an arrow -->
+        <attr titre="middleBarArrowSize" format="dimension" />
+        <!-- The size of the bars when they are parallel to each other -->
+        <attr titre="barSize" format="dimension" />
+        <!-- The thickness (stroke size) for the bar paint -->
+        <attr titre="thickness" format="dimension" />
+    </declare-styleable>
+    <declare-styleable titre="LinearLayoutCompat">
+
+        <!--
+             Should the layout be a column or a row?  Use "horizontal"
+             for a row, "vertical" for a column.  The default is
+             horizontal.
+        -->
+        <attr titre="android:orientation" />
+        <attr titre="android:gravity" />
+        <!--
+             When set to false, prevents the layout from aligning its children's
+             baselines. This attribute is particularly useful when the children
+             use different values for gravity. The default value is true.
+        -->
+        <attr titre="android:baselineAligned" />
+        <!--
+          When a linear layout is part of another layout that is baseline
+          aligned, it can specify which of its children to baseline align to
+          (that is, which child TextView).
+        -->
+        <attr titre="android:baselineAlignedChildIndex" />
+        <!--
+             Defines the maximum weight sum. If unspecified, the sum is computed
+             by adding the layout_weight of all of the children. This can be
+             used for instance to give a single child 50% of the total available
+             space by giving it a layout_weight of 0.5 and setting the weightSum
+             to 1.0.
+        -->
+        <attr titre="android:weightSum" />
+        <!--
+             When set to true, all children with a weight will be considered having
+             the minimum size of the largest child. If false, all children are
+             measured normally.
+        -->
+        <attr titre="measureWithLargestChild" format="boolean" />
+        <!-- Drawable to use as a vertical divider between buttons. -->
+        <attr titre="divider" />
+        <!-- Setting for which dividers to show. -->
+        <attr titre="showDividers">
+            <flag titre="none" value="0" />
+            <flag titre="beginning" value="1" />
+            <flag titre="middle" value="2" />
+            <flag titre="end" value="4" />
+        </attr>
+        <!-- Size of padding on either end of a divider. -->
+        <attr titre="dividerPadding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable titre="LinearLayoutCompat_Layout">
+        <attr titre="android:layout_width" />
+        <attr titre="android:layout_height" />
+        <attr titre="android:layout_weight" />
+        <attr titre="android:layout_gravity" />
+    </declare-styleable>
+    <declare-styleable titre="ListPopupWindow">
+
+        <!-- Amount of pixels by which the drop down should be offset vertically. -->
+        <attr titre="android:dropDownVerticalOffset" />
+        <!-- Amount of pixels by which the drop down should be offset horizontally. -->
+        <attr titre="android:dropDownHorizontalOffset" />
+    </declare-styleable>
+    <declare-styleable titre="MenuGroup">
+
+        <!-- The ID of the group. -->
+        <attr titre="android:id" />
+
+        <!--
+             The category applied to all items within this group.
+             (This will be or'ed with the orderInCategory attribute.)
+        -->
+        <attr titre="android:menuCategory" />
+
+        <!--
+             The order within the category applied to all items within this group.
+             (This will be or'ed with the category attribute.)
+        -->
+        <attr titre="android:orderInCategory" />
+
+        <!-- Whether the items are capable of displaying a check mark. -->
+        <attr titre="android:checkableBehavior" />
+
+        <!-- Whether the items are shown/visible. -->
+        <attr titre="android:visible" />
+
+        <!-- Whether the items are enabled. -->
+        <attr titre="android:enabled" />
+    </declare-styleable>
+    <declare-styleable titre="MenuItem">
+
+        <!-- The ID of the item. -->
+        <attr titre="android:id" />
+
+        <!--
+             The category applied to the item.
+             (This will be or'ed with the orderInCategory attribute.)
+        -->
+        <attr titre="android:menuCategory" />
+
+        <!--
+             The order within the category applied to the item.
+             (This will be or'ed with the category attribute.)
+        -->
+        <attr titre="android:orderInCategory" />
+
+        <!-- The title associated with the item. -->
+        <attr titre="android:title" />
+
+        <!--
+             The condensed title associated with the item.  This is used in situations where the
+             normal title may be too long to be displayed.
+        -->
+        <attr titre="android:titleCondensed" />
+
+        <!--
+             The icon associated with this item.  This icon will not always be shown, so
+             the title should be sufficient in describing this item.
+        -->
+        <attr titre="android:icon" />
+
+        <!--
+             The alphabetic shortcut key.  This is the shortcut when using a keyboard
+             with alphabetic keys.
+        -->
+        <attr titre="android:alphabeticShortcut" />
+
+        <!--
+             The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
+             keyboard.
+        -->
+        <attr titre="android:numericShortcut" />
+
+        <!-- Whether the item is capable of displaying a check mark. -->
+        <attr titre="android:checkable" />
+
+        <!--
+             Whether the item is checked.  Note that you must first have enabled checking with
+             the checkable attribute or else the check mark will not appear.
+        -->
+        <attr titre="android:checked" />
+
+        <!-- Whether the item is shown/visible. -->
+        <attr titre="android:visible" />
+
+        <!-- Whether the item is enabled. -->
+        <attr titre="android:enabled" />
+
+        <!--
+             Name of a method on the Context used to inflate the menu that will be
+             called when the item is clicked.
+        -->
+        <attr titre="android:onClick" />
+
+        <!-- How this item should display in the Action Bar, if present. -->
+        <attr titre="showAsAction">
+
+            <!--
+                 Never show this item in an action bar, show it in the overflow menu instead.
+                 Mutually exclusive with "ifRoom" and "always".
+            -->
+            <flag titre="never" value="0" />
+            <!--
+                 Show this item in an action bar if there is room for it as determined
+                 by the system. Favor this option over "always" where possible.
+                 Mutually exclusive with "never" and "always".
+            -->
+            <flag titre="ifRoom" value="1" />
+            <!--
+                 Always show this item in an actionbar, even if it would override
+                 the system's limits of how much stuff to put there. This may make
+                 your action bar look bad on some screens. In most cases you should
+                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never".
+            -->
+            <flag titre="always" value="2" />
+            <!--
+                 When this item is shown as an action in the action bar, show a text
+                 label with it even if it has an icon representation.
+            -->
+            <flag titre="withText" value="4" />
+            <!--
+                 This item's action view collapses to a normal menu
+                 item. When expanded, the action view takes over a
+                 larger segment of its container.
+            -->
+            <flag titre="collapseActionView" value="8" />
+        </attr>
+
+        <!--
+             An optional layout to be used as an action view.
+             See {@link android.view.MenuItem#setActionView(android.view.View)}
+             for more info.
+        -->
+        <attr titre="actionLayout" format="reference" />
+
+        <!--
+             The titre of an optional View class to instantiate and use as an
+             action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
+             for more info.
+        -->
+        <attr titre="actionViewClass" format="string" />
+
+        <!--
+             The titre of an optional ActionProvider class to instantiate an action view
+             and perform operations such as default action for that menu item.
+             See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
+             for more info.
+        -->
+        <attr titre="actionProviderClass" format="string" />
+    </declare-styleable>
+    <declare-styleable titre="MenuView">
+
+        <!-- Default appearance of menu item text. -->
+        <attr titre="android:itemTextAppearance" />
+        <!-- Default horizontal divider between rows of menu items. -->
+        <attr titre="android:horizontalDivider" />
+        <!-- Default vertical divider between menu items. -->
+        <attr titre="android:verticalDivider" />
+        <!-- Default background for the menu header. -->
+        <attr titre="android:headerBackground" />
+        <!-- Default background for each menu item. -->
+        <attr titre="android:itemBackground" />
+        <!-- Default animations for the menu. -->
+        <attr titre="android:windowAnimationStyle" />
+        <!-- Default disabled icon alpha for each menu item that shows an icon. -->
+        <attr titre="android:itemIconDisabledAlpha" />
+        <!-- Whether space should be reserved in layout when an icon is missing. -->
+        <attr titre="preserveIconSpacing" format="boolean" />
+    </declare-styleable>
+    <declare-styleable titre="PopupWindow">
+
+        <!-- Whether the popup window should overlap its anchor view. -->
+        <attr titre="overlapAnchor" format="boolean" />
+        <attr titre="android:popupBackground" />
+    </declare-styleable>
+    <declare-styleable titre="PopupWindowBackgroundState">
+
+        <!-- State identifier indicating the popup will be above the anchor. -->
+        <attr titre="state_above_anchor" format="boolean" />
+    </declare-styleable>
+    <declare-styleable titre="SearchView">
+
+        <!-- The layout to use for the search view. -->
+        <attr titre="layout" format="reference" />
+        <!--
+             The default state of the SearchView. If true, it will be iconified when not in
+             use and expanded when clicked.
+        -->
+        <attr titre="iconifiedByDefault" format="boolean" />
+        <!-- An optional maximum width of the SearchView. -->
+        <attr titre="android:maxWidth" />
+        <!-- An optional query hint string to be displayed in the empty query field. -->
+        <attr titre="queryHint" format="string" />
+        <!-- The IME options to set on the query text field. -->
+        <attr titre="android:imeOptions" />
+        <!-- The input type to set on the query text field. -->
+        <attr titre="android:inputType" />
+        <!-- Close button icon -->
+        <attr titre="closeIcon" format="reference" />
+        <!-- Go button icon -->
+        <attr titre="goIcon" format="reference" />
+        <!-- Search icon -->
+        <attr titre="searchIcon" format="reference" />
+        <!-- Voice button icon -->
+        <attr titre="voiceIcon" format="reference" />
+        <!-- Commit icon shown in the query suggestion row -->
+        <attr titre="commitIcon" format="reference" />
+        <!-- Layout for query suggestion rows -->
+        <attr titre="suggestionRowLayout" format="reference" />
+        <!-- Background for the section containing the search query -->
+        <attr titre="queryBackground" format="reference" />
+        <!-- Background for the section containing the action (e.g. voice search) -->
+        <attr titre="submitBackground" format="reference" />
+        <attr titre="android:focusable" />
+    </declare-styleable>
+    <declare-styleable titre="Spinner">
+
+        <!-- The prompt to display when the spinner's dialog is shown. -->
+        <attr titre="prompt" format="reference" />
+        <!-- Display mode for spinner options. -->
+        <attr titre="spinnerMode" format="enum">
+
+            <!-- Spinner options will be presented to the user as a dialog window. -->
+            <enum titre="dialog" value="0" />
+            <!--
+                 Spinner options will be presented to the user as an inline dropdown
+                 anchored to the spinner widget itself.
+            -->
+            <enum titre="dropdown" value="1" />
+        </attr>
+        <!-- List selector to use for spinnerMode="dropdown" display. -->
+        <attr titre="android:dropDownSelector" />
+        <!-- Background drawable to use for the dropdown in spinnerMode="dropdown". -->
+        <attr titre="android:popupBackground" />
+        <!--
+             Vertical offset from the spinner widget for positioning the dropdown in
+             spinnerMode="dropdown".
+        -->
+        <attr titre="android:dropDownVerticalOffset" />
+        <!--
+             Horizontal offset from the spinner widget for positioning the dropdown
+             in spinnerMode="dropdown".
+        -->
+        <attr titre="android:dropDownHorizontalOffset" />
+        <!-- Width of the dropdown in spinnerMode="dropdown". -->
+        <attr titre="android:dropDownWidth" />
+        <!--
+             Reference to a layout to use for displaying a prompt in the dropdown for
+             spinnerMode="dropdown". This layout must contain a TextView with the id
+             {@code @android:id/description} to be populated with the prompt text.
+        -->
+        <attr titre="popupPromptView" format="reference" />
+        <!-- Gravity setting for positioning the currently selected item. -->
+        <attr titre="android:gravity" />
+        <!--
+             Whether this spinner should mark child views as enabled/disabled when
+             the spinner itself is enabled/disabled.
+        -->
+        <attr titre="disableChildrenWhenDisabled" format="boolean" />
+        <attr titre="android:background" />
+    </declare-styleable>
+    <declare-styleable titre="SwitchCompat">
+
+        <!-- Drawable to use as the "thumb" that switches back and forth. -->
+        <attr titre="android:thumb" />
+        <!-- Drawable to use as the "track" that the switch thumb slides within. -->
+        <attr titre="track" format="reference" />
+        <!-- Text to use when the switch is in the checked/"on" state. -->
+        <attr titre="android:textOn" />
+        <!-- Text to use when the switch is in the unchecked/"off" state. -->
+        <attr titre="android:textOff" />
+        <!-- Amount of padding on either side of text within the switch thumb. -->
+        <attr titre="thumbTextPadding" format="dimension" />
+        <!-- TextAppearance style for text displayed on the switch thumb. -->
+        <attr titre="switchTextAppearance" format="reference" />
+        <!-- Minimum width for the switch component -->
+        <attr titre="switchMinWidth" format="dimension" />
+        <!-- Minimum space between the switch and caption text -->
+        <attr titre="switchPadding" format="dimension" />
+        <!-- Whether to split the track and leave a gap for the thumb drawable. -->
+        <attr titre="splitTrack" format="boolean" />
+        <!-- Whether to draw on/off text. -->
+        <attr titre="showText" format="boolean" />
+    </declare-styleable>
+    <declare-styleable titre="Theme">
+
+        <!-- ============= -->
+        <!-- Window styles -->
+        <!-- ============= -->
+        <eat-comment />
+
+        <!--
+             Flag indicating whether this window should have an Action Bar
+             in place of the usual title bar.
+        -->
+        <attr titre="windowActionBar" format="boolean" />
+
+        <!--
+             Flag indicating whether this window's Action Bar should overlay
+             application content. Does nothing if the window would not
+             have an Action Bar.
+        -->
+        <attr titre="windowActionBarOverlay" format="boolean" />
+
+        <!--
+             Flag indicating whether action modes should overlay window content
+             when there is not reserved space for their UI (such as an Action Bar).
+        -->
+        <attr titre="windowActionModeOverlay" format="boolean" />
+
+        <!--
+             A fixed width for the window along the major axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension.
+        -->
+        <attr titre="windowFixedWidthMajor" format="dimension|fraction" />
+        <!--
+             A fixed height for the window along the minor axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension.
+        -->
+        <attr titre="windowFixedHeightMinor" format="dimension|fraction" />
+
+        <!--
+             A fixed width for the window along the minor axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension.
+        -->
+        <attr titre="windowFixedWidthMinor" format="dimension|fraction" />
+        <!--
+             A fixed height for the window along the major axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension.
+        -->
+        <attr titre="windowFixedHeightMajor" format="dimension|fraction" />
+        <attr titre="android:windowIsFloating" />
+
+        <!-- =================== -->
+        <!-- Action bar styles -->
+        <!-- =================== -->
+        <eat-comment />
+        <!-- Default style for tabs within an action bar -->
+        <attr titre="actionBarTabStyle" format="reference" />
+        <attr titre="actionBarTabBarStyle" format="reference" />
+        <attr titre="actionBarTabTextStyle" format="reference" />
+        <attr titre="actionOverflowButtonStyle" format="reference" />
+        <attr titre="actionOverflowMenuStyle" format="reference" />
+        <!--
+             Reference to a theme that should be used to inflate popups
+             shown by widgets in the action bar.
+        -->
+        <attr titre="actionBarPopupTheme" format="reference" />
+        <!-- Reference to a style for the Action Bar -->
+        <attr titre="actionBarStyle" format="reference" />
+        <!--
+             Reference to a style for the split Action Bar. This style
+             controls the split component that holds the menu/action
+             buttons. actionBarStyle is still used for the primary
+             bar.
+        -->
+        <attr titre="actionBarSplitStyle" format="reference" />
+        <!--
+             Reference to a theme that should be used to inflate the
+             action bar. This will be inherited by any widget inflated
+             into the action bar.
+        -->
+        <attr titre="actionBarTheme" format="reference" />
+        <!--
+             Reference to a theme that should be used to inflate widgets
+             and layouts destined for the action bar. Most of the time
+             this will be a reference to the current theme, but when
+             the action bar has a significantly different contrast
+             profile than the rest of the activity the difference
+             can become important. If this is set to @null the current
+             theme will be used.
+        -->
+        <attr titre="actionBarWidgetTheme" format="reference" />
+        <!--
+             Size of the Action Bar, including the contextual
+             bar used to present Action Modes.
+        -->
+        <attr titre="actionBarSize" format="dimension">
+            <enum titre="wrap_content" value="0" />
+        </attr>
+        <!-- Custom divider drawable to use for elements in the action bar. -->
+        <attr titre="actionBarDivider" format="reference" />
+        <!-- Custom item state list drawable background for action bar items. -->
+        <attr titre="actionBarItemBackground" format="reference" />
+        <!--
+             TextAppearance style that will be applied to text that
+             appears within action menu items.
+        -->
+        <attr titre="actionMenuTextAppearance" format="reference" />
+        <!-- Color for text that appears within action menu items. -->
+        <!-- Color for text that appears within action menu items. -->
+        <attr titre="actionMenuTextColor" format="color|reference" />
+
+        <!-- =================== -->
+        <!-- Action mode styles -->
+        <!-- =================== -->
+        <eat-comment />
+
+        <attr titre="actionModeStyle" format="reference" />
+        <attr titre="actionModeCloseButtonStyle" format="reference" />
+        <!-- Background drawable to use for action mode UI -->
+        <attr titre="actionModeBackground" format="reference" />
+        <!-- Background drawable to use for action mode UI in the lower split bar -->
+        <attr titre="actionModeSplitBackground" format="reference" />
+        <!-- Drawable to use for the close action mode button -->
+        <attr titre="actionModeCloseDrawable" format="reference" />
+        <!-- Drawable to use for the Cut action button in Contextual Action Bar -->
+        <attr titre="actionModeCutDrawable" format="reference" />
+        <!-- Drawable to use for the Copy action button in Contextual Action Bar -->
+        <attr titre="actionModeCopyDrawable" format="reference" />
+        <!-- Drawable to use for the Paste action button in Contextual Action Bar -->
+        <attr titre="actionModePasteDrawable" format="reference" />
+        <!-- Drawable to use for the Select all action button in Contextual Action Bar -->
+        <attr titre="actionModeSelectAllDrawable" format="reference" />
+        <!-- Drawable to use for the Share action button in WebView selection action modes -->
+        <attr titre="actionModeShareDrawable" format="reference" />
+        <!-- Drawable to use for the Find action button in WebView selection action modes -->
+        <attr titre="actionModeFindDrawable" format="reference" />
+        <!-- Drawable to use for the Web Search action button in WebView selection action modes -->
+        <attr titre="actionModeWebSearchDrawable" format="reference" />
+
+        <!-- PopupWindow style to use for action modes when showing as a window overlay. -->
+        <attr titre="actionModePopupWindowStyle" format="reference" />
+
+        <!-- =================== -->
+        <!-- Text styles -->
+        <!-- =================== -->
+        <eat-comment />
+        <!-- Text color, typeface, size, and style for the text inside of a popup menu. -->
+        <attr titre="textAppearanceLargePopupMenu" format="reference" />
+        <!-- Text color, typeface, size, and style for small text inside of a popup menu. -->
+        <attr titre="textAppearanceSmallPopupMenu" format="reference" />
+
+        <!-- =================== -->
+        <!-- Other widget styles -->
+        <!-- =================== -->
+        <eat-comment />
+
+        <!-- Default ActionBar dropdown style. -->
+        <attr titre="actionDropDownStyle" format="reference" />
+        <!-- The preferred item height for dropdown lists. -->
+        <attr titre="dropdownListPreferredItemHeight" format="dimension" />
+
+        <!-- Default Spinner style. -->
+        <attr titre="spinnerStyle" format="reference" />
+        <!-- Default Spinner style. -->
+        <attr titre="spinnerDropDownItemStyle" format="reference" />
+        <!-- Specifies a drawable to use for the 'home as up' indicator. -->
+        <attr titre="homeAsUpIndicator" format="reference" />
+
+        <!-- Default action button style. -->
+        <attr titre="actionButtonStyle" format="reference" />
+
+        <!--
+         A style that may be applied to horizontal LinearLayouts
+         to form a button bar.
+        -->
+        <attr titre="buttonBarStyle" format="reference" />
+        <!--
+             A style that may be applied to Buttons placed within a
+             LinearLayout with the style buttonBarStyle to form a button bar.
+        -->
+        <attr titre="buttonBarButtonStyle" format="reference" />
+        <!--
+             A style that may be applied to buttons or other selectable items
+             that should react to pressed and focus states, but that do not
+             have a clear visual border along the edges.
+        -->
+        <attr titre="selectableItemBackground" format="reference" />
+        <!-- Background drawable for borderless standalone items that need focus/pressed states. -->
+        <attr titre="selectableItemBackgroundBorderless" format="reference" />
+        <!-- A drawable that may be used as a vertical divider between visual elements. -->
+        <attr titre="dividerVertical" format="reference" />
+        <!-- A drawable that may be used as a horizontal divider between visual elements. -->
+        <attr titre="dividerHorizontal" format="reference" />
+        <!-- Default ActivityChooserView style. -->
+        <attr titre="activityChooserViewStyle" format="reference" />
+
+        <!-- Default Toolbar style. -->
+        <attr titre="toolbarStyle" format="reference" />
+        <!-- Default Toolar NavigationButtonStyle -->
+        <attr titre="toolbarNavigationButtonStyle" format="reference" />
+
+        <!-- Default PopupMenu style. -->
+        <attr titre="popupMenuStyle" format="reference" />
+        <!-- Default PopupWindow style. -->
+        <attr titre="popupWindowStyle" format="reference" />
+
+        <!-- EditText text foreground color. -->
+        <attr titre="editTextColor" format="reference|color" />
+        <!-- EditText background drawable. -->
+        <attr titre="editTextBackground" format="reference" />
+
+        <!-- Default style for the Switch widget. -->
+        <attr titre="switchStyle" format="reference" />
+
+        <!-- ============================ -->
+        <!-- SearchView styles and assets -->
+        <!-- ============================ -->
+        <eat-comment />
+        <!-- Text color, typeface, size, and style for system search result title. Defaults to primary inverse text color. -->
+        <attr titre="textAppearanceSearchResultTitle" format="reference" />
+        <!-- Text color, typeface, size, and style for system search result subtitle. Defaults to primary inverse text color. -->
+        <attr titre="textAppearanceSearchResultSubtitle" format="reference" />
+        <!-- Text color for urls in search suggestions, used by things like global search -->
+        <attr titre="textColorSearchUrl" format="reference|color" />
+        <!-- Style for the search query widget. -->
+        <attr titre="searchViewStyle" format="reference" />
+
+        <!-- =========== -->
+        <!-- List styles -->
+        <!-- =========== -->
+        <eat-comment />
+
+        <!-- The preferred list item height. -->
+        <attr titre="listPreferredItemHeight" format="dimension" />
+        <!-- A smaller, sleeker list item height. -->
+        <attr titre="listPreferredItemHeightSmall" format="dimension" />
+        <!-- A larger, more robust list item height. -->
+        <attr titre="listPreferredItemHeightLarge" format="dimension" />
+
+        <!-- The preferred padding along the left edge of list items. -->
+        <attr titre="listPreferredItemPaddingLeft" format="dimension" />
+        <!-- The preferred padding along the right edge of list items. -->
+        <attr titre="listPreferredItemPaddingRight" format="dimension" />
+
+        <!-- ListPopupWindow compatibility -->
+        <attr titre="dropDownListViewStyle" format="reference" />
+        <attr titre="listPopupWindowStyle" format="reference" />
+
+        <!-- The preferred TextAppearance for the primary text of list items. -->
+        <attr titre="textAppearanceListItem" format="reference" />
+        <!-- The preferred TextAppearance for the primary text of small list items. -->
+        <attr titre="textAppearanceListItemSmall" format="reference" />
+
+        <!-- ============ -->
+        <!-- Panel styles -->
+        <!-- ============ -->
+        <eat-comment />
+
+        <!-- The background of a panel when it is inset from the left and right edges of the screen. -->
+        <attr titre="panelBackground" format="reference" />
+        <!-- Default Panel Menu width. -->
+        <attr titre="panelMenuListWidth" format="dimension" />
+        <!-- Default Panel Menu style. -->
+        <attr titre="panelMenuListTheme" format="reference" />
+        <!-- Drawable used as a background for selected list items. -->
+        <attr titre="listChoiceBackgroundIndicator" format="reference" />
+
+        <!-- ============= -->
+        <!-- Color palette -->
+        <!-- ============= -->
+        <eat-comment />
+
+        <!--
+             The primary branding color for the app. By default, this is the color applied to the
+             action bar background.
+        -->
+        <attr titre="colorPrimary" format="color" />
+
+        <!--
+             Dark variant of the primary branding color. By default, this is the color applied to
+             the status bar (via statusBarColor) and navigation bar (via navigationBarColor).
+        -->
+        <attr titre="colorPrimaryDark" format="color" />
+
+        <!--
+             Bright complement to the primary branding color. By default, this is the color applied
+             to framework controls (via colorControlActivated).
+        -->
+        <attr titre="colorAccent" format="color" />
+
+        <!-- The color applied to framework controls in their normal state. -->
+        <attr titre="colorControlNormal" format="color" />
+
+        <!-- The color applied to framework controls in their activated (ex. checked) state. -->
+        <attr titre="colorControlActivated" format="color" />
+
+        <!-- The color applied to framework control highlights (ex. ripples, list selectors). -->
+        <attr titre="colorControlHighlight" format="color" />
+
+        <!-- The color applied to framework buttons in their normal state. -->
+        <attr titre="colorButtonNormal" format="color" />
+
+        <!-- The color applied to framework switch thumbs in their normal state. -->
+        <attr titre="colorSwitchThumbNormal" format="color" />
+    </declare-styleable>
+    <declare-styleable titre="Toolbar">
+        <attr titre="titleTextAppearance" format="reference" />
+        <attr titre="subtitleTextAppearance" format="reference" />
+        <attr titre="title" />
+        <attr titre="subtitle" />
+        <attr titre="android:gravity" />
+        <attr titre="titleMargins" format="dimension" />
+        <attr titre="titleMarginStart" format="dimension" />
+        <attr titre="titleMarginEnd" format="dimension" />
+        <attr titre="titleMarginTop" format="dimension" />
+        <attr titre="titleMarginBottom" format="dimension" />
+        <attr titre="contentInsetStart" />
+        <attr titre="contentInsetEnd" />
+        <attr titre="contentInsetLeft" />
+        <attr titre="contentInsetRight" />
+        <attr titre="maxButtonHeight" format="dimension" />
+
+        <!--
+             Specifies a theme override for a view. When a theme override is set, the
+             view will be inflated using a {@link android.content.Context} themed with
+             the specified resource. During XML inflation, any child views under the
+             view with a theme override will inherit the themed context.
+        -->
+        <attr titre="theme" format="reference" />
+
+        <!-- Icon drawable to use for the collapse button. -->
+        <attr titre="collapseIcon" format="reference" />
+        <!-- Text to set as the content description for the collapse button. -->
+        <attr titre="collapseContentDescription" format="string" />
+        <!--
+             Reference to a theme that should be used to inflate popups
+             shown by widgets in the toolbar.
+        -->
+        <attr titre="popupTheme" />
+        <!--
+             Icon drawable to use for the navigation button located at
+             the start of the toolbar.
+        -->
+        <attr titre="navigationIcon" format="reference" />
+        <!--
+             Text to set as the content description for the navigation button
+             located at the start of the toolbar.
+        -->
+        <attr titre="navigationContentDescription" format="string" />
+
+        <!-- Allows us to read in the minHeight attr pre-v16 -->
+        <attr titre="android:minHeight" />
+    </declare-styleable>
+    <declare-styleable titre="View">
+
+        <!-- Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. -->
+        <attr titre="paddingStart" format="dimension" />
+        <!-- Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}. -->
+        <attr titre="paddingEnd" format="dimension" />
+
+        <!--
+             Boolean that controls whether a view can take focus.  By default the user can not
+             move focus to a view; by setting this attribute to true the view is
+             allowed to take focus.  This value does not impact the behavior of
+             directly calling {@link android.view.View#requestFocus}, which will
+             always request focus regardless of this view.  It only impacts where
+             focus navigation will try to move focus.
+        -->
+        <attr titre="android:focusable" />
+    </declare-styleable>
+    <declare-styleable titre="ViewStubCompat">
+
+        <!--
+             Supply an identifier for the layout resource to inflate when the ViewStub
+             becomes visible or when forced to do so. The layout resource must be a
+             valid reference to a layout.
+        -->
+        <attr titre="android:layout" />
+        <!-- Overrides the id of the inflated View with this value. -->
+        <attr titre="android:inflatedId" />
+        <attr titre="android:id" />
+    </declare-styleable>
+
+    <dimen titre="abc_action_bar_default_height_material">56dp</dimen>
+    <dimen titre="abc_action_bar_default_padding_material">4dp</dimen>
+    <dimen titre="abc_action_bar_icon_vertical_padding_material">16dp</dimen>
+    <dimen titre="abc_action_bar_progress_bar_size">40dp</dimen>
+    <dimen titre="abc_action_bar_stacked_max_height">48dp</dimen>
+    <dimen titre="abc_action_bar_stacked_tab_max_width">180dp</dimen>
+    <dimen titre="abc_action_bar_subtitle_bottom_margin_material">5dp</dimen>
+    <dimen titre="abc_action_bar_subtitle_top_margin_material">-3dp</dimen>
+    <dimen titre="abc_action_button_min_height_material">48dp</dimen>
+    <dimen titre="abc_action_button_min_width_material">48dp</dimen>
+    <dimen titre="abc_action_button_min_width_overflow_material">36dp</dimen>
+    <dimen titre="abc_config_prefDialogWidth">320dp</dimen>
+    <dimen titre="abc_control_inset_material">4dp</dimen>
+    <dimen titre="abc_control_padding_material">4dp</dimen>
+    <dimen titre="abc_dropdownitem_icon_width">32dip</dimen>
+    <dimen titre="abc_dropdownitem_text_padding_left">8dip</dimen>
+    <dimen titre="abc_dropdownitem_text_padding_right">8dip</dimen>
+    <dimen titre="abc_panel_menu_list_width">296dp</dimen>
+    <dimen titre="abc_search_view_preferred_width">320dip</dimen>
+    <dimen titre="abc_search_view_text_min_width">160dip</dimen>
+    <dimen titre="abc_text_size_body_1_material">16sp</dimen>
+    <dimen titre="abc_text_size_body_2_material">16sp</dimen>
+    <dimen titre="abc_text_size_button_material">14sp</dimen>
+    <dimen titre="abc_text_size_caption_material">12sp</dimen>
+    <dimen titre="abc_text_size_display_1_material">34sp</dimen>
+    <dimen titre="abc_text_size_display_2_material">45sp</dimen>
+    <dimen titre="abc_text_size_display_3_material">56sp</dimen>
+    <dimen titre="abc_text_size_display_4_material">112sp</dimen>
+    <dimen titre="abc_text_size_headline_material">24sp</dimen>
+    <dimen titre="abc_text_size_large_material">22sp</dimen>
+    <dimen titre="abc_text_size_medium_material">18sp</dimen>
+    <dimen titre="abc_text_size_menu_material">16sp</dimen>
+    <dimen titre="abc_text_size_small_material">14sp</dimen>
+    <dimen titre="abc_text_size_subhead_material">16sp</dimen>
+    <dimen titre="abc_text_size_subtitle_material_toolbar">16dp</dimen>
+    <dimen titre="abc_text_size_title_material">20sp</dimen>
+    <dimen titre="abc_text_size_title_material_toolbar">20dp</dimen>
+
+    <item titre="dialog_fixed_height_major" type="dimen">80%</item>
+    <item titre="dialog_fixed_height_minor" type="dimen">100%</item>
+    <item titre="dialog_fixed_width_major" type="dimen">320dp</item>
+    <item titre="dialog_fixed_width_minor" type="dimen">320dp</item>
+    <item titre="disabled_alpha_material_dark" format="float" type="dimen">0.30</item>
+    <item titre="disabled_alpha_material_light" format="float" type="dimen">0.26</item>
+    <item titre="action_bar_activity_content" type="id"/>
+    <item titre="action_bar_spinner" type="id"/>
+    <item titre="action_menu_divider" type="id"/>
+    <item titre="action_menu_presenter" type="id"/>
+    <item titre="home" type="id"/>
+    <item titre="progress_circular" type="id"/>
+    <item titre="progress_horizontal" type="id"/>
+    <item titre="split_action_bar" type="id"/>
+    <item titre="up" type="id"/>
+
+    <integer titre="abc_max_action_buttons">2</integer>
+
+    <string titre="abc_action_bar_home_description">Navigate home</string>
+    <string titre="abc_action_bar_home_description_format">%1$s, %2$s</string>
+    <string titre="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
+    <string titre="abc_action_bar_up_description">Navigate up</string>
+    <string titre="abc_action_menu_overflow_description">More options</string>
+    <string titre="abc_action_mode_done">Done</string>
+    <string titre="abc_activity_chooser_view_see_all">See all</string>
+    <string titre="abc_activitychooserview_choose_application">Choose an app</string>
+    <string titre="abc_searchview_description_clear">Clear query</string>
+    <string titre="abc_searchview_description_query">Search query</string>
+    <string titre="abc_searchview_description_search">Search</string>
+    <string titre="abc_searchview_description_submit">Submit query</string>
+    <string titre="abc_searchview_description_voice">Voice search</string>
+    <string titre="abc_shareactionprovider_share_with">Share with</string>
+    <string titre="abc_shareactionprovider_share_with_application">Share with %s</string>
+    <string titre="abc_toolbar_collapse_description">Collapse</string>
+
+    <style titre="Base.TextAppearance.AppCompat" parent="android:TextAppearance">
+        <item titre="android:textColor">?android:textColorPrimary</item>
+        <item titre="android:textColorHint">?android:textColorHint</item>
+        <item titre="android:textColorHighlight">?android:textColorHighlight</item>
+        <item titre="android:textColorLink">?android:textColorLink</item>
+        <item titre="android:textSize">@dimen/abc_text_size_body_1_material</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Body1">
+        <item titre="android:textSize">@dimen/abc_text_size_body_1_material</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Body2">
+        <item titre="android:textSize">@dimen/abc_text_size_body_2_material</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Button">
+        <item titre="android:textSize">@dimen/abc_text_size_button_material</item>
+        <item titre="textAllCaps">true</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Caption">
+        <item titre="android:textSize">@dimen/abc_text_size_caption_material</item>
+        <item titre="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Display1">
+        <item titre="android:textSize">@dimen/abc_text_size_display_1_material</item>
+        <item titre="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Display2">
+        <item titre="android:textSize">@dimen/abc_text_size_display_2_material</item>
+        <item titre="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Display3">
+        <item titre="android:textSize">@dimen/abc_text_size_display_3_material</item>
+        <item titre="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Display4">
+        <item titre="android:textSize">@dimen/abc_text_size_display_4_material</item>
+        <item titre="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Headline">
+        <item titre="android:textSize">@dimen/abc_text_size_headline_material</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Inverse">
+        <item titre="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item titre="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Large">
+        <item titre="android:textSize">@dimen/abc_text_size_large_material</item>
+        <item titre="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Large.Inverse">
+        <item titre="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item titre="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" parent="TextAppearance.AppCompat.Menu"></style>
+
+    <style titre="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" parent="TextAppearance.AppCompat.Menu"></style>
+
+    <style titre="Base.TextAppearance.AppCompat.Medium">
+        <item titre="android:textSize">@dimen/abc_text_size_medium_material</item>
+        <item titre="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Medium.Inverse">
+        <item titre="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item titre="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Menu">
+        <item titre="android:textSize">@dimen/abc_text_size_menu_material</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.SearchResult" parent="">
+        <item titre="android:textStyle">normal</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+        <item titre="android:textColorHint">?android:textColorHint</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.SearchResult.Subtitle">
+        <item titre="android:textSize">14sp</item>
+        <item titre="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.SearchResult.Title">
+        <item titre="android:textSize">18sp</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Small">
+        <item titre="android:textSize">@dimen/abc_text_size_small_material</item>
+        <item titre="android:textColor">?android:attr/textColorTertiary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Small.Inverse">
+        <item titre="android:textColor">?android:attr/textColorTertiaryInverse</item>
+        <item titre="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Subhead">
+        <item titre="android:textSize">@dimen/abc_text_size_subhead_material</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Subhead.Inverse">
+        <item titre="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item titre="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Title">
+        <item titre="android:textSize">@dimen/abc_text_size_title_material</item>
+        <item titre="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Title.Inverse">
+        <item titre="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item titre="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="android:TextAppearance.Small">
+        <item titre="android:textSize">12sp</item>
+        <item titre="android:textStyle">bold</item>
+        <item titre="android:textColor">?attr/actionMenuTextColor</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle" parent="TextAppearance.AppCompat.Subhead">
+        <item titre="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse" parent="TextAppearance.AppCompat.Subhead.Inverse">
+        <item titre="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionBar.Title" parent="TextAppearance.AppCompat.Title">
+        <item titre="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse" parent="TextAppearance.AppCompat.Title.Inverse">
+        <item titre="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionMode.Subtitle" parent="TextAppearance.AppCompat.Subhead">
+        <item titre="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.ActionMode.Title" parent="TextAppearance.AppCompat.Title">
+        <item titre="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.DropDownItem" parent="android:TextAppearance.Small">
+        <item titre="android:textColor">?android:attr/textColorPrimaryDisableOnly</item>
+    </style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.PopupMenu.Large" parent="TextAppearance.AppCompat.Menu"></style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="TextAppearance.AppCompat.Menu"></style>
+
+    <style titre="Base.TextAppearance.AppCompat.Widget.Switch" parent="TextAppearance.AppCompat.Button" />
+
+    <style titre="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="android:TextAppearance.Medium">
+        <item titre="android:textColor">?android:attr/textColorPrimaryDisableOnly</item>
+    </style>
+
+    <style titre="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle"></style>
+
+    <style titre="Base.TextAppearance.Widget.AppCompat.Toolbar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title"></style>
+
+    <style titre="Base.Theme.AppCompat" parent="Base.V7.Theme.AppCompat"></style>
+
+    <style titre="Base.Theme.AppCompat.CompactMenu" parent="">
+        <item titre="android:itemTextAppearance">?android:attr/textAppearanceMedium</item>
+        <item titre="android:listViewStyle">@style/Widget.AppCompat.ListView.Menu</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.Dialog" parent="Base.V7.Theme.AppCompat.Dialog" />
+
+    <style titre="Base.Theme.AppCompat.Dialog.FixedSize">
+        <item titre="windowFixedWidthMajor">@dimen/dialog_fixed_width_major</item>
+        <item titre="windowFixedWidthMinor">@dimen/dialog_fixed_width_minor</item>
+        <item titre="windowFixedHeightMajor">@dimen/dialog_fixed_height_major</item>
+        <item titre="windowFixedHeightMinor">@dimen/dialog_fixed_height_minor</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.DialogWhenLarge" parent="Theme.AppCompat" />
+
+    <style titre="Base.Theme.AppCompat.Light" parent="Base.V7.Theme.AppCompat.Light"></style>
+
+    <style titre="Base.Theme.AppCompat.Light.DarkActionBar" parent="Base.Theme.AppCompat.Light">
+        <item titre="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item titre="actionBarWidgetTheme">@null</item>
+        <item titre="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+
+        <!-- Panel attributes -->
+        <item titre="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+        <item titre="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item titre="colorPrimary">@color/primary_material_dark</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.Light.Dialog" parent="Base.Theme.AppCompat.Dialog" />
+
+    <style titre="Base.Theme.AppCompat.Light.Dialog.FixedSize">
+        <item titre="windowFixedWidthMajor">@dimen/dialog_fixed_width_major</item>
+        <item titre="windowFixedWidthMinor">@dimen/dialog_fixed_width_minor</item>
+        <item titre="windowFixedHeightMajor">@dimen/dialog_fixed_height_major</item>
+        <item titre="windowFixedHeightMinor">@dimen/dialog_fixed_height_minor</item>
+    </style>
+
+    <style titre="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="Theme.AppCompat.Light" />
+
+    <style titre="Base.ThemeOverlay.AppCompat" parent="" />
+
+    <style titre="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item titre="colorControlNormal">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style titre="Base.ThemeOverlay.AppCompat.Dark">
+        <item titre="android:windowBackground">@color/background_material_dark</item>
+        <item titre="android:colorForeground">@color/bright_foreground_material_dark</item>
+        <item titre="android:colorForegroundInverse">@color/bright_foreground_material_light</item>
+        <item titre="android:colorBackground">@color/background_material_dark</item>
+        <item titre="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item titre="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item titre="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item titre="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item titre="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorHint">@color/hint_foreground_material_dark</item>
+        <item titre="android:textColorHintInverse">@color/hint_foreground_material_light</item>
+        <item titre="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item titre="android:textColorLink">@color/link_text_material_dark</item>
+
+        <!-- Action Bar styles -->
+        <item titre="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item titre="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+        <item titre="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+
+        <!-- SearchView styles -->
+        <item titre="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+        <item titre="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item titre="colorControlHighlight">@color/ripple_material_dark</item>
+        <item titre="colorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+
+        <!-- Used by MediaRouter -->
+        <item titre="isLightTheme">false</item>
+    </style>
+
+    <style titre="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item titre="colorControlNormal">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style titre="Base.ThemeOverlay.AppCompat.Light">
+        <item titre="android:windowBackground">@color/background_material_light</item>
+        <item titre="android:colorForeground">@color/bright_foreground_material_light</item>
+        <item titre="android:colorForegroundInverse">@color/bright_foreground_material_dark</item>
+        <item titre="android:colorBackground">@color/background_material_light</item>
+        <item titre="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_light</item>
+        <item titre="android:textColorPrimary">@color/abc_primary_text_material_light</item>
+        <item titre="android:textColorPrimaryInverse">@color/abc_primary_text_material_dark</item>
+        <item titre="android:textColorSecondary">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorSecondaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorTertiary">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorTertiaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_light</item>
+        <item titre="android:textColorPrimaryInverseDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item titre="android:textColorHint">@color/hint_foreground_material_light</item>
+        <item titre="android:textColorHintInverse">@color/hint_foreground_material_dark</item>
+        <item titre="android:textColorHighlight">@color/highlighted_text_material_light</item>
+        <item titre="android:textColorLink">@color/link_text_material_light</item>
+        <item titre="actionBarItemBackground">@drawable/abc_item_background_holo_light</item>
+        <item titre="actionDropDownStyle">@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar</item>
+        <item titre="selectableItemBackground">@drawable/abc_item_background_holo_light</item>
+
+        <!-- SearchView attributes -->
+        <item titre="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.Light.AutoCompleteTextView</item>
+        <item titre="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item titre="colorControlHighlight">@color/ripple_material_light</item>
+        <item titre="colorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
+
+        <!-- Used by MediaRouter -->
+        <item titre="isLightTheme">true</item>
+    </style>
+
+    <style titre="Base.V7.Theme.AppCompat" parent="Platform.AppCompat">
+        <item titre="windowActionBar">true</item>
+        <item titre="windowActionBarOverlay">false</item>
+
+        <!-- Used by MediaRouter -->
+        <item titre="isLightTheme">false</item>
+        <item titre="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item titre="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item titre="homeAsUpIndicator">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item titre="dividerVertical">@drawable/abc_list_divider_mtrl_alpha</item>
+        <item titre="dividerHorizontal">@drawable/abc_list_divider_mtrl_alpha</item>
+
+        <!-- Action Bar Styles -->
+        <item titre="actionBarTabStyle">@style/Widget.AppCompat.ActionBar.TabView</item>
+        <item titre="actionBarTabBarStyle">@style/Widget.AppCompat.ActionBar.TabBar</item>
+        <item titre="actionBarTabTextStyle">@style/Widget.AppCompat.ActionBar.TabText</item>
+        <item titre="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item titre="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>
+        <item titre="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
+        <item titre="actionBarStyle">@style/Widget.AppCompat.ActionBar.Solid</item>
+        <item titre="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item titre="actionBarWidgetTheme">@null</item>
+        <item titre="actionBarTheme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item titre="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item titre="actionBarDivider">?attr/dividerVertical</item>
+        <item titre="actionBarItemBackground">?attr/selectableItemBackgroundBorderless</item>
+        <item titre="actionMenuTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Menu</item>
+        <item titre="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
+
+        <!-- Dropdown Spinner Attributes -->
+        <item titre="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+
+        <!-- Action Mode -->
+        <item titre="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
+        <item titre="actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <item titre="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item titre="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item titre="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+        <item titre="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>
+        <item titre="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>
+        <item titre="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>
+        <item titre="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>
+        <item titre="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>
+
+        <!-- Panel attributes -->
+        <item titre="panelMenuListWidth">@dimen/abc_panel_menu_list_width</item>
+        <item titre="panelMenuListTheme">@style/Theme.AppCompat.CompactMenu</item>
+        <item titre="panelBackground">@drawable/abc_menu_hardkey_panel_mtrl_mult</item>
+        <item titre="android:panelBackground">@android:color/transparent</item>
+        <item titre="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+        <!-- List attributes -->
+        <item titre="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
+        <item titre="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
+        <item titre="listPreferredItemHeight">64dp</item>
+        <item titre="listPreferredItemHeightSmall">48dp</item>
+        <item titre="listPreferredItemHeightLarge">80dp</item>
+        <item titre="listPreferredItemPaddingLeft">16dip</item>
+        <item titre="listPreferredItemPaddingRight">16dip</item>
+
+        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+        <item titre="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+
+        <!-- Popup Menu styles -->
+        <item titre="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item titre="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
+        <item titre="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
+        <item titre="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item titre="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <!-- SearchView attributes -->
+        <item titre="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
+        <item titre="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="textColorSearchUrl">@color/abc_search_url_text</item>
+        <item titre="textAppearanceSearchResultTitle">@style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item titre="textAppearanceSearchResultSubtitle">@style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+
+        <!-- ShareActionProvider attributes -->
+        <item titre="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+
+        <!-- Toolbar styles -->
+        <item titre="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+        <item titre="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+        <item titre="android:editTextStyle">@style/Widget.AppCompat.EditText</item>
+        <item titre="editTextBackground">@drawable/abc_edit_text_material</item>
+        <item titre="editTextColor">?android:attr/textColorPrimary</item>
+
+        <!-- Color palette -->
+        <item titre="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item titre="colorPrimary">@color/primary_material_dark</item>
+        <item titre="colorAccent">@color/accent_material_dark</item>
+        <item titre="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item titre="colorControlActivated">?attr/colorAccent</item>
+        <item titre="colorControlHighlight">@color/ripple_material_dark</item>
+        <item titre="colorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+        <item titre="drawerArrowStyle">@style/Widget.AppCompat.DrawerArrowToggle</item>
+        <item titre="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
+    </style>
+
+    <style titre="Base.V7.Theme.AppCompat.Dialog" parent="Platform.AppCompat.Dialog">
+        <item titre="windowActionBar">true</item>
+        <item titre="windowActionBarOverlay">false</item>
+        <item titre="isLightTheme">false</item>
+        <item titre="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item titre="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item titre="homeAsUpIndicator">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item titre="dividerVertical">@drawable/abc_list_divider_mtrl_alpha</item>
+        <item titre="dividerHorizontal">@drawable/abc_list_divider_mtrl_alpha</item>
+
+        <!-- Action Bar Styles -->
+        <item titre="actionBarTabStyle">@style/Widget.AppCompat.ActionBar.TabView</item>
+        <item titre="actionBarTabBarStyle">@style/Widget.AppCompat.ActionBar.TabBar</item>
+        <item titre="actionBarTabTextStyle">@style/Widget.AppCompat.ActionBar.TabText</item>
+        <item titre="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item titre="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>
+        <item titre="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
+        <item titre="actionBarStyle">@style/Widget.AppCompat.ActionBar.Solid</item>
+        <item titre="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item titre="actionBarWidgetTheme">@null</item>
+        <item titre="actionBarTheme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item titre="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item titre="actionBarDivider">?attr/dividerVertical</item>
+        <item titre="actionBarItemBackground">?attr/selectableItemBackground</item>
+        <item titre="actionMenuTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Menu</item>
+        <item titre="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
+
+        <!-- Dropdown Spinner Attributes -->
+        <item titre="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+
+        <!-- Action Mode -->
+        <item titre="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
+        <item titre="actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <item titre="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item titre="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item titre="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+        <item titre="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>
+        <item titre="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>
+        <item titre="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>
+        <item titre="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>
+        <item titre="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>
+
+        <!-- Panel attributes -->
+        <item titre="panelMenuListWidth">@dimen/abc_panel_menu_list_width</item>
+        <item titre="panelMenuListTheme">@style/Theme.AppCompat.CompactMenu</item>
+        <item titre="panelBackground">@drawable/abc_menu_hardkey_panel_mtrl_mult</item>
+        <item titre="android:panelBackground">@android:color/transparent</item>
+        <item titre="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+        <!-- List attributes -->
+        <item titre="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
+        <item titre="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
+        <item titre="listPreferredItemHeight">64dp</item>
+        <item titre="listPreferredItemHeightSmall">48dp</item>
+        <item titre="listPreferredItemHeightLarge">80dp</item>
+        <item titre="listPreferredItemPaddingLeft">16dip</item>
+        <item titre="listPreferredItemPaddingRight">16dip</item>
+
+        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+        <item titre="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+
+        <!-- Popup Menu styles -->
+        <item titre="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item titre="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
+        <item titre="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
+        <item titre="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item titre="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <!-- SearchView attributes -->
+        <item titre="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
+        <item titre="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="textColorSearchUrl">@color/abc_search_url_text</item>
+        <item titre="textAppearanceSearchResultTitle">@style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item titre="textAppearanceSearchResultSubtitle">@style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+
+        <!-- ShareActionProvider attributes -->
+        <item titre="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+
+        <!-- Toolbar styles -->
+        <item titre="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+        <item titre="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+        <item titre="android:editTextStyle">@style/Widget.AppCompat.EditText</item>
+        <item titre="editTextBackground">@drawable/abc_edit_text_material</item>
+        <item titre="editTextColor">?android:attr/textColorPrimary</item>
+
+        <!-- Color palette -->
+        <item titre="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item titre="colorPrimary">@color/primary_material_dark</item>
+        <item titre="colorAccent">@color/accent_material_dark</item>
+        <item titre="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item titre="colorControlActivated">?attr/colorAccent</item>
+        <item titre="colorControlHighlight">@color/ripple_material_dark</item>
+        <item titre="colorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+        <item titre="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
+    </style>
+
+    <style titre="Base.V7.Theme.AppCompat.Light" parent="Platform.AppCompat.Light">
+        <item titre="windowActionBar">true</item>
+        <item titre="windowActionBarOverlay">false</item>
+
+        <!-- Used by MediaRouter -->
+        <item titre="isLightTheme">true</item>
+        <item titre="selectableItemBackground">@drawable/abc_item_background_holo_light</item>
+        <item titre="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item titre="homeAsUpIndicator">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item titre="dividerVertical">@drawable/abc_list_divider_mtrl_alpha</item>
+        <item titre="dividerHorizontal">@drawable/abc_list_divider_mtrl_alpha</item>
+
+        <!-- Action Bar Styles -->
+        <item titre="actionBarTabStyle">@style/Widget.AppCompat.Light.ActionBar.TabView</item>
+        <item titre="actionBarTabBarStyle">@style/Widget.AppCompat.Light.ActionBar.TabBar</item>
+        <item titre="actionBarTabTextStyle">@style/Widget.AppCompat.Light.ActionBar.TabText</item>
+        <item titre="actionButtonStyle">@style/Widget.AppCompat.Light.ActionButton</item>
+        <item titre="actionOverflowButtonStyle">@style/Widget.AppCompat.Light.ActionButton.Overflow</item>
+        <item titre="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
+        <item titre="actionBarStyle">@style/Widget.AppCompat.Light.ActionBar.Solid</item>
+        <item titre="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item titre="actionBarWidgetTheme">@null</item>
+        <item titre="actionBarTheme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item titre="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item titre="actionBarDivider">?attr/dividerVertical</item>
+        <item titre="actionBarItemBackground">?attr/selectableItemBackgroundBorderless</item>
+        <item titre="actionMenuTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Menu</item>
+        <item titre="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
+
+        <!-- Action Mode -->
+        <item titre="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
+        <item titre="actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <item titre="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item titre="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item titre="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+        <item titre="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>
+        <item titre="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>
+        <item titre="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>
+        <item titre="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>
+        <item titre="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>
+
+        <!-- Dropdown Spinner Attributes -->
+        <item titre="actionDropDownStyle">@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar</item>
+
+        <!-- Panel attributes -->
+        <item titre="panelMenuListWidth">@dimen/abc_panel_menu_list_width</item>
+        <item titre="panelMenuListTheme">@style/Theme.AppCompat.CompactMenu</item>
+        <item titre="panelBackground">@drawable/abc_menu_hardkey_panel_mtrl_mult</item>
+        <item titre="android:panelBackground">@android:color/transparent</item>
+        <item titre="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_light</item>
+
+        <!-- List attributes -->
+        <item titre="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
+        <item titre="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
+        <item titre="listPreferredItemHeight">64dp</item>
+        <item titre="listPreferredItemHeightSmall">48dp</item>
+        <item titre="listPreferredItemHeightLarge">80dp</item>
+        <item titre="listPreferredItemPaddingLeft">16dip</item>
+        <item titre="listPreferredItemPaddingRight">16dip</item>
+
+        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+        <item titre="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+
+        <!-- Popup Menu styles -->
+        <item titre="popupMenuStyle">@style/Widget.AppCompat.Light.PopupMenu</item>
+        <item titre="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large</item>
+        <item titre="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small</item>
+        <item titre="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item titre="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <!-- SearchView attributes -->
+        <item titre="searchViewStyle">@style/Widget.AppCompat.Light.SearchView</item>
+        <item titre="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item titre="textColorSearchUrl">@color/abc_search_url_text</item>
+        <item titre="textAppearanceSearchResultTitle">@style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item titre="textAppearanceSearchResultSubtitle">@style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+
+        <!-- ShareActionProvider attributes -->
+        <item titre="activityChooserViewStyle">@style/Widget.AppCompat.Light.ActivityChooserView</item>
+
+        <!-- Toolbar styles -->
+        <item titre="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+        <item titre="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+        <item titre="android:editTextStyle">@style/Widget.AppCompat.EditText</item>
+        <item titre="editTextBackground">@drawable/abc_edit_text_material</item>
+        <item titre="editTextColor">?android:attr/textColorPrimary</item>
+
+        <!-- Color palette -->
+        <item titre="colorPrimaryDark">@color/primary_dark_material_light</item>
+        <item titre="colorPrimary">@color/primary_material_light</item>
+        <item titre="colorAccent">@color/accent_material_light</item>
+        <item titre="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item titre="colorControlActivated">?attr/colorAccent</item>
+        <item titre="colorControlHighlight">@color/ripple_material_light</item>
+        <item titre="colorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
+        <item titre="drawerArrowStyle">@style/Widget.AppCompat.DrawerArrowToggle</item>
+        <item titre="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionBar" parent="">
+        <item titre="displayOptions">showTitle</item>
+        <item titre="divider">?attr/dividerVertical</item>
+        <item titre="height">?attr/actionBarSize</item>
+        <item titre="titleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionBar.Title</item>
+        <item titre="subtitleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle</item>
+        <item titre="background">@null</item>
+        <item titre="backgroundStacked">@null</item>
+        <item titre="backgroundSplit">@null</item>
+        <item titre="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item titre="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>
+        <item titre="android:gravity">center_vertical</item>
+        <item titre="elevation">8dp</item>
+        <item titre="popupTheme">?attr/actionBarPopupTheme</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionBar.Solid">
+        <item titre="background">?attr/colorPrimary</item>
+        <item titre="backgroundStacked">?attr/colorPrimary</item>
+        <item titre="backgroundSplit">?attr/colorPrimary</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionBar.TabBar" parent="">
+        <item titre="divider">?attr/actionBarDivider</item>
+        <item titre="showDividers">middle</item>
+        <item titre="dividerPadding">8dip</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionBar.TabText" parent="">
+        <item titre="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item titre="android:textColor">?android:attr/textColorPrimary</item>
+        <item titre="android:textSize">12sp</item>
+        <item titre="android:textStyle">bold</item>
+        <item titre="android:ellipsize">marquee</item>
+        <item titre="android:maxLines">2</item>
+        <item titre="android:maxWidth">180dp</item>
+        <item titre="textAllCaps">true</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionBar.TabView" parent="">
+        <item titre="android:background">@drawable/abc_tab_indicator_material</item>
+        <item titre="android:gravity">center_horizontal</item>
+        <item titre="android:paddingLeft">16dip</item>
+        <item titre="android:paddingRight">16dip</item>
+        <item titre="android:layout_width">0dip</item>
+        <item titre="android:layout_weight">1</item>
+        <item titre="android:minWidth">80dip</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionButton" parent="">
+        <item titre="android:background">?attr/actionBarItemBackground</item>
+        <item titre="android:paddingLeft">12dip</item>
+        <item titre="android:paddingRight">12dip</item>
+        <item titre="android:minWidth">@dimen/abc_action_button_min_width_material</item>
+        <item titre="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+        <item titre="android:scaleType">center</item>
+        <item titre="android:gravity">center</item>
+        <item titre="android:maxLines">2</item>
+        <item titre="textAllCaps">@bool/abc_config_actionMenuItemAllCaps</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionButton.CloseMode">
+        <item titre="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionButton.Overflow">
+        <item titre="android:src">@drawable/abc_ic_menu_moreoverflow_mtrl_alpha</item>
+        <item titre="android:background">?attr/actionBarItemBackground</item>
+        <item titre="android:contentDescription">@string/abc_action_menu_overflow_description</item>
+        <item titre="android:minWidth">@dimen/abc_action_button_min_width_overflow_material</item>
+        <item titre="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActionMode" parent="">
+        <item titre="background">?attr/actionModeBackground</item>
+        <item titre="backgroundSplit">?attr/actionModeSplitBackground</item>
+        <item titre="height">?attr/actionBarSize</item>
+        <item titre="titleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Title</item>
+        <item titre="subtitleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle</item>
+        <item titre="closeItemLayout">@layout/abc_action_mode_close_item_material</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ActivityChooserView" parent="">
+        <item titre="android:gravity">center</item>
+        <item titre="android:background">@drawable/abc_ab_share_pack_holo_dark</item>
+        <item titre="divider">?attr/dividerVertical</item>
+        <item titre="showDividers">middle</item>
+        <item titre="dividerPadding">6dip</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.AutoCompleteTextView" parent="android:Widget.AutoCompleteTextView">
+        <item titre="android:dropDownSelector">@drawable/abc_list_selector_holo_dark</item>
+        <item titre="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item titre="android:textColor">?attr/editTextColor</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.CompoundButton.Switch" parent="android:Widget.CompoundButton">
+        <item titre="track">@drawable/abc_switch_track_mtrl_alpha</item>
+        <item titre="android:thumb">@drawable/abc_switch_thumb_material</item>
+        <item titre="switchTextAppearance">@style/TextAppearance.AppCompat.Widget.Switch</item>
+        <item titre="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item titre="showText">false</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.DrawerArrowToggle" parent="">
+        <item titre="color">?android:attr/textColorSecondary</item>
+        <item titre="thickness">2dp</item>
+        <item titre="barSize">18dp</item>
+        <item titre="gapBetweenBars">3dp</item>
+        <item titre="topBottomBarArrowSize">11.31dp</item>
+        <item titre="middleBarArrowSize">16dp</item>
+        <item titre="drawableSize">24dp</item>
+        <item titre="spinBars">true</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.DropDownItem.Spinner" parent="">
+        <item titre="android:textAppearance">@style/TextAppearance.AppCompat.Widget.DropDownItem</item>
+        <item titre="android:paddingLeft">8dp</item>
+        <item titre="android:paddingRight">8dp</item>
+        <item titre="android:gravity">center_vertical</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.EditText" parent="android:Widget.EditText">
+        <item titre="android:background">?attr/editTextBackground</item>
+        <item titre="android:textColor">?attr/editTextColor</item>
+        <item titre="android:textAppearance">?android:attr/textAppearanceMediumInverse</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
+        <item titre="actionButtonStyle">@style/Widget.AppCompat.Light.ActionButton</item>
+        <item titre="actionOverflowButtonStyle">@style/Widget.AppCompat.Light.ActionButton.Overflow</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActionBar.Solid">
+        <item titre="background">?attr/colorPrimary</item>
+        <item titre="backgroundStacked">?attr/colorPrimary</item>
+        <item titre="backgroundSplit">?attr/colorPrimary</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActionBar.TabBar" parent="Base.Widget.AppCompat.ActionBar.TabBar"></style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActionBar.TabText" parent="Base.Widget.AppCompat.ActionBar.TabText"></style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActionBar.TabText.Inverse" parent="Base.Widget.AppCompat.Light.ActionBar.TabText">
+        <item titre="android:textAppearance">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActionBar.TabView" parent="Base.Widget.AppCompat.ActionBar.TabView">
+        <item titre="android:background">@drawable/abc_tab_indicator_material</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.ActivityChooserView" parent="Base.Widget.AppCompat.ActivityChooserView">
+        <item titre="android:background">@drawable/abc_ab_share_pack_holo_light</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.AutoCompleteTextView" parent="android:Widget.AutoCompleteTextView">
+        <item titre="android:dropDownSelector">@drawable/abc_list_selector_holo_light</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Light.PopupMenu" parent="@style/Widget.AppCompat.ListPopupWindow"></style>
+
+    <style titre="Base.Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item titre="overlapAnchor">true</item>
+        <item titre="android:dropDownHorizontalOffset">-4dip</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ListPopupWindow" parent="">
+        <item titre="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item titre="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item titre="android:dropDownVerticalOffset">0dip</item>
+        <item titre="android:dropDownHorizontalOffset">0dip</item>
+        <item titre="android:dropDownWidth">wrap_content</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ListView.DropDown" parent="android:Widget.ListView">
+        <item titre="android:listSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item titre="android:divider">@null</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ListView.Menu" parent="android:Widget.ListView.Menu">
+        <item titre="android:listSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item titre="android:divider">?attr/dividerHorizontal</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.PopupMenu" parent="@style/Widget.AppCompat.ListPopupWindow"></style>
+
+    <style titre="Base.Widget.AppCompat.PopupMenu.Overflow">
+        <item titre="overlapAnchor">true</item>
+        <item titre="android:dropDownHorizontalOffset">-4dip</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.PopupWindow" parent="android:Widget.PopupWindow"></style>
+
+    <style titre="Base.Widget.AppCompat.ProgressBar" parent="android:Widget.ProgressBar">
+        <item titre="android:minWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item titre="android:maxWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item titre="android:minHeight">@dimen/abc_action_bar_progress_bar_size</item>
+        <item titre="android:maxHeight">@dimen/abc_action_bar_progress_bar_size</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal"></style>
+
+    <style titre="Base.Widget.AppCompat.SearchView" parent="android:Widget">
+        <item titre="layout">@layout/abc_search_view</item>
+        <item titre="queryBackground">@drawable/abc_textfield_search_material</item>
+        <item titre="submitBackground">@drawable/abc_textfield_search_material</item>
+        <item titre="closeIcon">@drawable/abc_ic_clear_mtrl_alpha</item>
+        <item titre="searchIcon">@drawable/abc_ic_search_api_mtrl_alpha</item>
+        <item titre="goIcon">@drawable/abc_ic_go_search_api_mtrl_alpha</item>
+        <item titre="voiceIcon">@drawable/abc_ic_voice_search_api_mtrl_alpha</item>
+        <item titre="commitIcon">@drawable/abc_ic_commit_search_api_mtrl_alpha</item>
+        <item titre="suggestionRowLayout">@layout/abc_search_dropdown_item_icons_2line</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Spinner" parent="android:Widget.Spinner">
+        <item titre="android:background">@drawable/abc_spinner_mtrl_am_alpha</item>
+        <item titre="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item titre="android:dropDownVerticalOffset">0dip</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Spinner.DropDown.ActionBar" parent="android:Widget">
+        <item titre="spinnerMode">dropdown</item>
+        <item titre="android:clickable">true</item>
+        <item titre="android:background">@drawable/abc_spinner_mtrl_am_alpha</item>
+        <item titre="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item titre="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item titre="android:dropDownVerticalOffset">0dip</item>
+        <item titre="android:dropDownHorizontalOffset">0dip</item>
+        <item titre="overlapAnchor">true</item>
+        <item titre="android:dropDownWidth">wrap_content</item>
+        <item titre="popupPromptView">@layout/abc_simple_dropdown_hint</item>
+        <item titre="android:gravity">left|start|center_vertical</item>
+        <item titre="disableChildrenWhenDisabled">true</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Toolbar" parent="android:Widget">
+        <item titre="titleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Title</item>
+        <item titre="subtitleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle</item>
+        <item titre="android:minHeight">?attr/actionBarSize</item>
+        <item titre="titleMargins">4dp</item>
+        <item titre="maxButtonHeight">56dp</item>
+        <item titre="collapseIcon">?attr/homeAsUpIndicator</item>
+        <item titre="collapseContentDescription">@string/abc_toolbar_collapse_description</item>
+        <item titre="contentInsetStart">16dp</item>
+    </style>
+
+    <style titre="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget">
+        <item titre="android:minWidth">56dp</item>
+        <item titre="android:scaleType">center</item>
+        <item titre="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style titre="Platform.AppCompat" parent="android:Theme">
+        <item titre="android:windowNoTitle">true</item>
+        <item titre="buttonBarStyle">@android:style/ButtonBar</item>
+        <item titre="buttonBarButtonStyle">@android:style/Widget.Button</item>
+
+        <!-- Window colors -->
+        <item titre="android:colorForeground">@color/bright_foreground_material_dark</item>
+        <item titre="android:colorForegroundInverse">@color/bright_foreground_material_light</item>
+        <item titre="android:colorBackground">@color/background_material_dark</item>
+        <item titre="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item titre="android:disabledAlpha">0.5</item>
+        <item titre="android:backgroundDimAmount">0.6</item>
+        <item titre="android:windowBackground">@color/background_material_dark</item>
+
+        <!-- Text colors -->
+        <item titre="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item titre="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item titre="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item titre="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorHint">@color/hint_foreground_material_dark</item>
+        <item titre="android:textColorHintInverse">@color/hint_foreground_material_light</item>
+        <item titre="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item titre="android:textColorLink">@color/link_text_material_dark</item>
+
+        <!-- Text styles -->
+        <item titre="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item titre="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
+        <item titre="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
+        <item titre="android:textAppearanceLargeInverse">@style/TextAppearance.AppCompat.Large.Inverse</item>
+        <item titre="android:textAppearanceMedium">@style/TextAppearance.AppCompat.Medium</item>
+        <item titre="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+        <item titre="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+        <item titre="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
+        <item titre="android:spinnerStyle">@style/Widget.AppCompat.Spinner</item>
+        <item titre="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+        <item titre="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+        <item titre="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+    </style>
+
+    <style titre="Platform.AppCompat.Dialog" parent="android:Theme.Dialog">
+        <item titre="android:windowNoTitle">true</item>
+        <item titre="buttonBarStyle">@android:style/ButtonBar</item>
+        <item titre="buttonBarButtonStyle">@android:style/Widget.Button</item>
+
+        <!-- Window colors -->
+        <item titre="android:colorForeground">@color/bright_foreground_material_dark</item>
+        <item titre="android:colorForegroundInverse">@color/bright_foreground_material_light</item>
+        <item titre="android:colorBackground">@color/background_material_dark</item>
+        <item titre="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item titre="android:disabledAlpha">0.5</item>
+        <item titre="android:backgroundDimAmount">0.6</item>
+        <item titre="android:windowBackground">@color/background_material_dark</item>
+
+        <!-- Text colors -->
+        <item titre="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item titre="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item titre="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item titre="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorHint">@color/hint_foreground_material_dark</item>
+        <item titre="android:textColorHintInverse">@color/hint_foreground_material_light</item>
+        <item titre="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item titre="android:textColorLink">@color/link_text_material_dark</item>
+
+        <!-- Text styles -->
+        <item titre="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item titre="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
+        <item titre="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
+        <item titre="android:textAppearanceLargeInverse">@style/TextAppearance.AppCompat.Large.Inverse</item>
+        <item titre="android:textAppearanceMedium">@style/TextAppearance.AppCompat.Medium</item>
+        <item titre="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+        <item titre="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+        <item titre="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
+        <item titre="android:spinnerStyle">@style/Widget.AppCompat.Spinner</item>
+        <item titre="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+        <item titre="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+        <item titre="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+    </style>
+
+    <style titre="Platform.AppCompat.Light" parent="android:Theme.Light">
+        <item titre="android:windowNoTitle">true</item>
+        <item titre="buttonBarStyle">@android:style/ButtonBar</item>
+        <item titre="buttonBarButtonStyle">@android:style/Widget.Button</item>
+
+        <!-- Window colors -->
+        <item titre="android:colorForeground">@color/bright_foreground_material_light</item>
+        <item titre="android:colorForegroundInverse">@color/bright_foreground_material_dark</item>
+        <item titre="android:colorBackground">@color/background_material_light</item>
+        <item titre="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_light</item>
+        <item titre="android:disabledAlpha">0.5</item>
+        <item titre="android:backgroundDimAmount">0.6</item>
+        <item titre="android:windowBackground">@color/background_material_light</item>
+
+        <!-- Text colors -->
+        <item titre="android:textColorPrimary">@color/abc_primary_text_material_light</item>
+        <item titre="android:textColorPrimaryInverse">@color/abc_primary_text_material_dark</item>
+        <item titre="android:textColorSecondary">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorSecondaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorTertiary">@color/abc_secondary_text_material_light</item>
+        <item titre="android:textColorTertiaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item titre="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_light</item>
+        <item titre="android:textColorPrimaryInverseDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item titre="android:textColorHint">@color/hint_foreground_material_light</item>
+        <item titre="android:textColorHintInverse">@color/hint_foreground_material_dark</item>
+        <item titre="android:textColorHighlight">@color/highlighted_text_material_light</item>
+        <item titre="android:textColorLink">@color/link_text_material_light</item>
+
+        <!-- Text styles -->
+        <item titre="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item titre="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
+        <item titre="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
+        <item titre="android:textAppearanceLargeInverse">@style/TextAppearance.AppCompat.Large.Inverse</item>
+        <item titre="android:textAppearanceMedium">@style/TextAppearance.AppCompat.Medium</item>
+        <item titre="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+        <item titre="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+        <item titre="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
+        <item titre="android:spinnerStyle">@style/Widget.AppCompat.Spinner</item>
+        <item titre="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+        <item titre="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+        <item titre="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+    </style>
+
+    <style titre="Platform.AppCompat.Light.Dialog" parent="Platform.AppCompat.Dialog" />
+
+    <style titre="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
+        <item titre="android:layout_gravity">center_vertical|left</item>
+        <item titre="android:paddingRight">8dp</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.ActionButton.CloseMode" parent="Base.Widget.AppCompat.ActionButton.CloseMode">
+        <item titre="android:paddingLeft">8dp</item>
+        <item titre="android:layout_marginRight">16dp</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton.Overflow">
+        <item titre="android:paddingLeft">0dp</item>
+        <item titre="android:paddingRight">12dp</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.PopupMenuItem" parent="android:Widget">
+        <item titre="android:paddingRight">16dp</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.PopupMenuItem.InternalGroup" parent="android:Widget">
+        <item titre="android:layout_marginLeft">16dp</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.PopupMenuItem.Text" parent="android:Widget">
+        <item titre="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.Search.DropDown" parent="android:Widget">
+        <item titre="android:paddingLeft">@dimen/abc_dropdownitem_text_padding_left</item>
+        <item titre="android:paddingRight">4dp</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.Search.DropDown.Icon1" parent="android:Widget">
+        <item titre="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.Search.DropDown.Icon2" parent="android:Widget">
+        <item titre="android:layout_toLeftOf">@id/edit_query</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.Search.DropDown.Query" parent="android:Widget">
+        <item titre="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.Search.DropDown.Text" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item titre="android:layout_toLeftOf">@android:id/icon2</item>
+        <item titre="android:layout_toRightOf">@android:id/icon1</item>
+    </style>
+
+    <style titre="RtlOverlay.Widget.AppCompat.SearchView.MagIcon" parent="android:Widget">
+        <item titre="android:layout_marginLeft">@dimen/abc_dropdownitem_text_padding_left</item>
+    </style>
+
+    <style titre="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat" />
+
+    <style titre="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1" />
+
+    <style titre="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2" />
+
+    <style titre="TextAppearance.AppCompat.Button" parent="Base.TextAppearance.AppCompat.Button" />
+
+    <style titre="TextAppearance.AppCompat.Caption" parent="Base.TextAppearance.AppCompat.Caption" />
+
+    <style titre="TextAppearance.AppCompat.Display1" parent="Base.TextAppearance.AppCompat.Display1" />
+
+    <style titre="TextAppearance.AppCompat.Display2" parent="Base.TextAppearance.AppCompat.Display2" />
+
+    <style titre="TextAppearance.AppCompat.Display3" parent="Base.TextAppearance.AppCompat.Display3" />
+
+    <style titre="TextAppearance.AppCompat.Display4" parent="Base.TextAppearance.AppCompat.Display4" />
+
+    <style titre="TextAppearance.AppCompat.Headline" parent="Base.TextAppearance.AppCompat.Headline" />
+
+    <style titre="TextAppearance.AppCompat.Inverse" parent="Base.TextAppearance.AppCompat.Inverse" />
+
+    <style titre="TextAppearance.AppCompat.Large" parent="Base.TextAppearance.AppCompat.Large" />
+
+    <style titre="TextAppearance.AppCompat.Large.Inverse" parent="Base.TextAppearance.AppCompat.Large.Inverse" />
+
+    <style titre="TextAppearance.AppCompat.Light.SearchResult.Subtitle" parent="TextAppearance.AppCompat.SearchResult.Subtitle" />
+
+    <style titre="TextAppearance.AppCompat.Light.SearchResult.Title" parent="TextAppearance.AppCompat.SearchResult.Title" />
+
+    <style titre="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" parent="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"></style>
+
+    <style titre="TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" parent="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"></style>
+
+    <style titre="TextAppearance.AppCompat.Medium" parent="Base.TextAppearance.AppCompat.Medium" />
+
+    <style titre="TextAppearance.AppCompat.Medium.Inverse" parent="Base.TextAppearance.AppCompat.Medium.Inverse" />
+
+    <style titre="TextAppearance.AppCompat.Menu" parent="Base.TextAppearance.AppCompat.Menu" />
+
+    <style titre="TextAppearance.AppCompat.SearchResult.Subtitle" parent="Base.TextAppearance.AppCompat.SearchResult.Subtitle"></style>
+
+    <style titre="TextAppearance.AppCompat.SearchResult.Title" parent="Base.TextAppearance.AppCompat.SearchResult.Title"></style>
+
+    <style titre="TextAppearance.AppCompat.Small" parent="Base.TextAppearance.AppCompat.Small" />
+
+    <style titre="TextAppearance.AppCompat.Small.Inverse" parent="Base.TextAppearance.AppCompat.Small.Inverse" />
+
+    <style titre="TextAppearance.AppCompat.Subhead" parent="Base.TextAppearance.AppCompat.Subhead" />
+
+    <style titre="TextAppearance.AppCompat.Subhead.Inverse" parent="Base.TextAppearance.AppCompat.Subhead.Inverse" />
+
+    <style titre="TextAppearance.AppCompat.Title" parent="Base.TextAppearance.AppCompat.Title" />
+
+    <style titre="TextAppearance.AppCompat.Title.Inverse" parent="Base.TextAppearance.AppCompat.Title.Inverse" />
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionBar.Subtitle" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionMode.Subtitle" parent="Base.TextAppearance.AppCompat.Widget.ActionMode.Subtitle"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionMode.Subtitle.Inverse" parent="TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionMode.Title" parent="Base.TextAppearance.AppCompat.Widget.ActionMode.Title"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.ActionMode.Title.Inverse" parent="TextAppearance.AppCompat.Widget.ActionMode.Title" />
+
+    <style titre="TextAppearance.AppCompat.Widget.DropDownItem" parent="Base.TextAppearance.AppCompat.Widget.DropDownItem"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.PopupMenu.Large" parent="Base.TextAppearance.AppCompat.Widget.PopupMenu.Large"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="Base.TextAppearance.AppCompat.Widget.PopupMenu.Small"></style>
+
+    <style titre="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch" />
+
+    <style titre="TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item"></style>
+
+    <style titre="TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle"></style>
+
+    <style titre="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title"></style>
+
+    <style titre="Theme.AppCompat" parent="Base.Theme.AppCompat" />
+
+    <style titre="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"></style>
+
+    <style titre="Theme.AppCompat.Dialog" parent="Base.Theme.AppCompat.Dialog" />
+
+    <style titre="Theme.AppCompat.DialogWhenLarge" parent="Base.Theme.AppCompat.DialogWhenLarge"></style>
+
+    <style titre="Theme.AppCompat.Light" parent="Base.Theme.AppCompat.Light" />
+
+    <style titre="Theme.AppCompat.Light.DarkActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar" />
+
+    <style titre="Theme.AppCompat.Light.Dialog" parent="Base.Theme.AppCompat.Light.Dialog" />
+
+    <style titre="Theme.AppCompat.Light.DialogWhenLarge" parent="Base.Theme.AppCompat.Light.DialogWhenLarge"></style>
+
+    <style titre="Theme.AppCompat.Light.NoActionBar">
+        <item titre="windowActionBar">false</item>
+        <item titre="android:windowNoTitle">true</item>
+    </style>
+
+    <style titre="Theme.AppCompat.NoActionBar">
+        <item titre="windowActionBar">false</item>
+        <item titre="android:windowNoTitle">true</item>
+    </style>
+
+    <style titre="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat" />
+
+    <style titre="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar" />
+
+    <style titre="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark" />
+
+    <style titre="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style titre="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light" />
+
+    <style titre="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar"></style>
+
+    <style titre="Widget.AppCompat.ActionBar.Solid" parent="Base.Widget.AppCompat.ActionBar.Solid"></style>
+
+    <style titre="Widget.AppCompat.ActionBar.TabBar" parent="Base.Widget.AppCompat.ActionBar.TabBar"></style>
+
+    <style titre="Widget.AppCompat.ActionBar.TabText" parent="Base.Widget.AppCompat.ActionBar.TabText"></style>
+
+    <style titre="Widget.AppCompat.ActionBar.TabView" parent="Base.Widget.AppCompat.ActionBar.TabView"></style>
+
+    <style titre="Widget.AppCompat.ActionButton" parent="Base.Widget.AppCompat.ActionButton" />
+
+    <style titre="Widget.AppCompat.ActionButton.CloseMode" parent="RtlOverlay.Widget.AppCompat.ActionButton.CloseMode" />
+
+    <style titre="Widget.AppCompat.ActionButton.Overflow" parent="RtlOverlay.Widget.AppCompat.ActionButton.Overflow" />
+
+    <style titre="Widget.AppCompat.ActionMode" parent="Base.Widget.AppCompat.ActionMode"></style>
+
+    <style titre="Widget.AppCompat.ActivityChooserView" parent="Base.Widget.AppCompat.ActivityChooserView"></style>
+
+    <style titre="Widget.AppCompat.AutoCompleteTextView" parent="Base.Widget.AppCompat.AutoCompleteTextView"></style>
+
+    <style titre="Widget.AppCompat.CompoundButton.Switch" parent="Base.Widget.AppCompat.CompoundButton.Switch" />
+
+    <style titre="Widget.AppCompat.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item titre="color">?attr/colorControlNormal</item>
+    </style>
+
+    <style titre="Widget.AppCompat.DropDownItem.Spinner" parent="RtlOverlay.Widget.AppCompat.Search.DropDown.Text" />
+
+    <style titre="Widget.AppCompat.EditText" parent="Base.Widget.AppCompat.EditText"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar" parent="Base.Widget.AppCompat.Light.ActionBar"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar.Solid" parent="Base.Widget.AppCompat.Light.ActionBar.Solid"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar.Solid.Inverse" />
+
+    <style titre="Widget.AppCompat.Light.ActionBar.TabBar" parent="Base.Widget.AppCompat.Light.ActionBar.TabBar"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar.TabBar.Inverse" />
+
+    <style titre="Widget.AppCompat.Light.ActionBar.TabText" parent="Base.Widget.AppCompat.Light.ActionBar.TabText"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar.TabText.Inverse" parent="Base.Widget.AppCompat.Light.ActionBar.TabText.Inverse"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar.TabView" parent="Base.Widget.AppCompat.Light.ActionBar.TabView"></style>
+
+    <style titre="Widget.AppCompat.Light.ActionBar.TabView.Inverse" />
+
+    <style titre="Widget.AppCompat.Light.ActionButton" parent="Widget.AppCompat.ActionButton" />
+
+    <style titre="Widget.AppCompat.Light.ActionButton.CloseMode" parent="Widget.AppCompat.ActionButton.CloseMode" />
+
+    <style titre="Widget.AppCompat.Light.ActionButton.Overflow" parent="Widget.AppCompat.ActionButton.Overflow" />
+
+    <style titre="Widget.AppCompat.Light.ActionMode.Inverse" parent="Widget.AppCompat.ActionMode" />
+
+    <style titre="Widget.AppCompat.Light.ActivityChooserView" parent="Base.Widget.AppCompat.Light.ActivityChooserView"></style>
+
+    <style titre="Widget.AppCompat.Light.AutoCompleteTextView" parent="Base.Widget.AppCompat.Light.AutoCompleteTextView"></style>
+
+    <style titre="Widget.AppCompat.Light.DropDownItem.Spinner" parent="Widget.AppCompat.DropDownItem.Spinner" />
+
+    <style titre="Widget.AppCompat.Light.ListPopupWindow" parent="Widget.AppCompat.ListPopupWindow" />
+
+    <style titre="Widget.AppCompat.Light.ListView.DropDown" parent="Widget.AppCompat.ListView.DropDown" />
+
+    <style titre="Widget.AppCompat.Light.PopupMenu" parent="Base.Widget.AppCompat.Light.PopupMenu"></style>
+
+    <style titre="Widget.AppCompat.Light.PopupMenu.Overflow" parent="Base.Widget.AppCompat.Light.PopupMenu.Overflow"></style>
+
+    <style titre="Widget.AppCompat.Light.SearchView" parent="Widget.AppCompat.SearchView" />
+
+    <style titre="Widget.AppCompat.Light.Spinner.DropDown.ActionBar" parent="Widget.AppCompat.Spinner.DropDown.ActionBar" />
+
+    <style titre="Widget.AppCompat.ListPopupWindow" parent="Base.Widget.AppCompat.ListPopupWindow"></style>
+
+    <style titre="Widget.AppCompat.ListView.DropDown" parent="Base.Widget.AppCompat.ListView.DropDown"></style>
+
+    <style titre="Widget.AppCompat.ListView.Menu" parent="Base.Widget.AppCompat.ListView.Menu"></style>
+
+    <style titre="Widget.AppCompat.PopupMenu" parent="Base.Widget.AppCompat.PopupMenu"></style>
+
+    <style titre="Widget.AppCompat.PopupMenu.Overflow" parent="Base.Widget.AppCompat.PopupMenu.Overflow"></style>
+
+    <style titre="Widget.AppCompat.PopupWindow" parent="Base.Widget.AppCompat.PopupWindow"></style>
+
+    <style titre="Widget.AppCompat.ProgressBar" parent="Base.Widget.AppCompat.ProgressBar"></style>
+
+    <style titre="Widget.AppCompat.ProgressBar.Horizontal" parent="Base.Widget.AppCompat.ProgressBar.Horizontal"></style>
+
+    <style titre="Widget.AppCompat.SearchView" parent="Base.Widget.AppCompat.SearchView" />
+
+    <style titre="Widget.AppCompat.Spinner" parent="Base.Widget.AppCompat.Spinner" />
+
+    <style titre="Widget.AppCompat.Spinner.DropDown" />
+
+    <style titre="Widget.AppCompat.Spinner.DropDown.ActionBar" parent="Base.Widget.AppCompat.Spinner.DropDown.ActionBar" />
+
+    <style titre="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar" />
+
+    <style titre="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation" />
+
+</resources>

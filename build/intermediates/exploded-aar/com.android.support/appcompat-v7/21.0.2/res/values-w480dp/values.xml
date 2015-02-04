@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <bool titre="abc_action_bar_embed_tabs_pre_jb">true</bool>
+    <bool titre="abc_config_allowActionMenuItemTextWithIcon">true</bool>
+
+</resources>

@@ -21,6 +21,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -38,7 +39,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -51,14 +51,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     // le numéro de parcours en cours, utilisé pour chargement des bonnes images dans les jeux, par défaut mis à 1
     private static String numero_parcours_main = "parcours1" ;
-    //  url de téléchargement du json des parcours
-    private String urlJsonListParcours = "http://insensa.Fr/appli_decouverte/circuits.json";
-    // objet Json à lire contenant la liste des parcours
-    private HandleJsonListParcours handleJsonListParcours;
-    // objet Json à lire contenant les données propres à chaque parcours
-    private HandleJsonParcours handleJsonParcours;
-    // la map
-    private static GoogleMap mMap; // Might be null if Google Play services APK is not available.
     // the map Fragment
     private MapFragment mMapFragment;
     // pour indiquer que la mapfragmen est affiché
@@ -74,7 +66,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private static int positionPage;
     // le Context de l'appli
     private Context context;
-    private DrawerLayout contentViewLayout;
 
     // utilisé dans procédure de téléchargement (telechargeAndDisplayParcours)
     private static BroadcastReceiver receiver;
@@ -92,11 +83,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private boolean navigationDrawerFragmentIsDisplayed;
     private static String NAVIGATION_DRAWER_FRAGMENT_IS_DISPLAYED = "NAVIGATION_DRAWER_FRAGMENT_IS_DISPLAYED";
 
-    // pour géolocalisation
-    private String serviceString = Context.LOCATION_SERVICE;
     private LocationManager locationManager;
-    // la liste de tous les fournisseurs de localisation
-    private List<String> providers ;
     // le fournisseur de localisation trouvé en fonction des critères
     private String bestLocationProvider;
     // la localisation de l'utilisateur
@@ -143,9 +130,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // désérialisation du layout principal conteneur des fragments
         setContentView(R.layout.main_activity);
 
-        // récupération de la vue conteneur
-        contentViewLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
         // récupération du context, pour être utilisé plus tard dans des Toast...
         context = this;
 
@@ -161,7 +145,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // si le contenu n'est pas vide, on traite l'intent : téléchargement et lancement du parcours sélectionné
         if (intent.getData()!=null) {
             parseIntentSearchActivityOnListItemClick(intent);
-        };
+        }
         intent.setData(null);
 
         // aucun receiver (BroadcastReceiver) n'est enregistré au démarrage, il le sera dans
@@ -174,11 +158,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         mapFragmentIsDisplayed = false;
 
         // accès au gestionnaire de localisation
+        String serviceString = Context.LOCATION_SERVICE;
         locationManager = (LocationManager) getSystemService(serviceString);
-
-        // trouver la liste des fournisseurs disponibles
-        final boolean enableOnly = true;
-        providers = locationManager.getProviders(enableOnly);
 
         // définition de critères pour récupérer du plus au moins précis
         Criteria criteria = new Criteria();
@@ -231,7 +212,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // cela se produit notamment quand changement d'orientation de l'écran
     // // récupère les infos de nSaveInstanceState
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Log.i("info", "onRestoreInstanceState Main Activity");
         navigationDrawerFragmentIsDisplayed=savedInstanceState.getBoolean(NAVIGATION_DRAWER_FRAGMENT_IS_DISPLAYED);
@@ -288,7 +269,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     // si on veut sauvegarder des valeurs précises à restaurer après arrêts, mise en arrière plan...
     @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         if (navigationDrawerFragmentIsDisplayed) {
             savedInstanceState.putBoolean(NAVIGATION_DRAWER_FRAGMENT_IS_DISPLAYED, true);
@@ -329,7 +310,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
         assert actionBar != null;
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
@@ -521,7 +501,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // permet d'attendre que le commit soit terminé avant de continuer à exécuter le code
         fragmentManager.executePendingTransactions();
         // on récupère la carte pour pouvoir travailler dessus
-        mMap = mMapFragment.getMap();
+        GoogleMap mMap = mMapFragment.getMap();
         Log.i("mMap =", mMap.toString());
         // Actualisation de la position
         if (locationManager!=null) {
@@ -608,16 +588,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             try {
                 // teste si le parcours est déjà dans la BD
                 boolean success = false;
-                handleJsonListParcours = new HandleJsonListParcours(urlJsonListParcours);
+                String urlJsonListParcours = "http://insensa.Fr/appli_decouverte/circuits.json";
+                HandleJsonListParcours handleJsonListParcours = new HandleJsonListParcours(urlJsonListParcours);
                 // lecture du Json et création du tableau
                 handleJsonListParcours.fetchJSON();
                 while (handleJsonListParcours.getParsingComplete()) {
                     System.out.println("parsing not complete" + handleJsonListParcours.getSizeArray());
                     // quand la lecture du Json est terminé (le Json n'est pas vide)
                     if (handleJsonListParcours.getSizeArray() != 0) {
-                        Integer sizeArrat = handleJsonListParcours.getSizeArray();
-                        String sizeArray = sizeArrat.toString();
-
                         //   Toast.makeText(this, sizeArray, Toast.LENGTH_LONG ).show();
                         ParcoursDataBase parcoursDataBase = new ParcoursDataBase(getApplicationContext());
                         // récupération de toutes les valeurs de la base
@@ -711,7 +689,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                // boolean success = false;
                 String location = Environment.getExternalStorageDirectory() + "/Android" + Environment.getDataDirectory() + "/" + getPackageName()
                         + "/files/" + this.numeroParcours + "/"+ this.numeroParcours + ".json";
-                handleJsonParcours = new HandleJsonParcours(location);
+                HandleJsonParcours handleJsonParcours = new HandleJsonParcours(location);
                 // lecture du Json et création du tableau
                 handleJsonParcours.fetchJSON();
                 ParcoursDataBase parcoursDataBase = new ParcoursDataBase(getApplicationContext());
@@ -756,16 +734,16 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         System.out.println("countCursorLine : " + countCursorLine);
         if (countCursorLine != 0) {
             // parcours de toutes les lignes de la base et affectation à des variables
-            ArrayList<String> uri = new ArrayList<String>();
-            ArrayList<String> titre = new ArrayList<String>();
-            ArrayList<String> description = new ArrayList<String>();
-            ArrayList<String> localisation = new ArrayList<String>();
-            ArrayList<String> zipName = new ArrayList<String>();
-            ArrayList<String> parcoursInList = new ArrayList<String>();
-            ArrayList<String> key_id = new ArrayList<String>();
-            ArrayList<String> is_installed = new ArrayList<String>();
-            ArrayList<String> numero = new ArrayList<String>();
-            ArrayList<String> departement = new ArrayList<String>();
+            ArrayList<String> uri = new ArrayList<>();
+            ArrayList<String> titre = new ArrayList<>();
+            ArrayList<String> description = new ArrayList<>();
+            ArrayList<String> localisation = new ArrayList<>();
+            ArrayList<String> zipName = new ArrayList<>();
+            ArrayList<String> parcoursInList = new ArrayList<>();
+            ArrayList<String> key_id = new ArrayList<>();
+            ArrayList<String> is_installed = new ArrayList<>();
+            ArrayList<String> numero = new ArrayList<>();
+            ArrayList<String> departement = new ArrayList<>();
             for (int i = 0; i < countCursorLine; i++) {
                 System.out.println("boucle read data base");
                 uri.add(parcoursDataBase.getUri_picture(i));
@@ -795,17 +773,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                                              ArrayList<String> pNumeroParcours, ArrayList<String> pDepartement) {
 
         System.out.println("télécharger and display Parcours");
-        final ArrayList<String> keyId = pKeyId;
-        final ArrayList<String> urlIcone = pUrlIcone;
-        final ArrayList<String> titre = pTitre;
-        final ArrayList <String> description = pDescription;
-        final ArrayList<String> zipName = pzipName;
-        final ArrayList<String> parcoursInList = pParcoursInList;
-        final ArrayList<String> numeroParcours = pNumeroParcours;
-        final ArrayList<String> departement = pDepartement;
-
-
-        System.out.println("jerome parcoursInList : " + parcoursInList);
+        System.out.println("jerome parcoursInList : " + pParcoursInList);
 
         // affichage de la boite de dialogue si elle n'est pas déjà visible
         if (mainProgressDialog==null) {
@@ -819,11 +787,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         }
         // test si parcours déjà présent dans la liste
         // si le parcours n'était pas présent dans la base, on télécharge son icone et on affiche les informations
-        for (int i = 0; i<parcoursInList.size(); i++) {
-            final int finalI = i;
-            if (parcoursInList.get(i).contentEquals("false")) {
-                 new TelechargeAndDisplayParcoursTask(urlIcone, zipName, keyId, numeroParcours,
-                        titre, description, departement, parcoursInList, finalI).execute((Void[]) null);
+        for (int i = 0; i<pParcoursInList.size(); i++) {
+            if (pParcoursInList.get(i).contentEquals("false")) {
+                 new TelechargeAndDisplayParcoursTask(pUrlIcone, pzipName, pKeyId, pNumeroParcours,
+                        pTitre, pDescription, pDepartement, pParcoursInList, i).execute((Void[]) null);
                 // on casse la boucle pour ne pas qu'elle continue avant que les intents envoyées par TelechargeAndDisplayParcoursTask ne soinet onReceive
                 // ce qui généère des bugs et des fuitesde l'objet receiver
                 // la boucle sera rebouclée dans onReceive
@@ -831,9 +798,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             }
             else {
                 // au dernier tour de boucle, on affiche les textes et icones
-                if (finalI==(parcoursInList.size()-1)) {
+                if (i==(pParcoursInList.size()-1)) {
                     mainProgressDialog.dismiss();
-                    displayTextAndIconExpandableParcours(urlIcone, zipName, keyId, numeroParcours, titre, description, departement);
+                    displayTextAndIconExpandableParcours(pUrlIcone, pzipName, pKeyId, pNumeroParcours, pTitre, pDescription, pDepartement);
                 }
             }
         }
@@ -945,7 +912,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         protected void onPostExecute(Void result) {
 
         }
-    };
+    }
 
 
     protected void displayTextAndIconExpandableParcours(ArrayList<String> pUri, ArrayList<String> pzipName, ArrayList<String> pKeyId,
@@ -953,23 +920,15 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                                                      ArrayList<String> pdescription, ArrayList<String> pDepartement ) {
 
         System.out.println("débutDisplayIconeParcours");
-        final ArrayList<String> uri = pUri;
-        final ArrayList<String> keyId = pKeyId;
-        final ArrayList<String> zipName = pzipName;
-        final ArrayList<String> numeroParcours = pNumeroParcours;
-        final ArrayList<String> titre = ptitre;
-        final ArrayList<String> description = pdescription;
-        final ArrayList<String> departement = pDepartement;
-
 
         Bundle args = new Bundle();
-        args.putStringArrayList("_KEY_ID", keyId);
-        args.putStringArrayList("_URI", uri);
-        args.putStringArrayList("_ZIP_NAME", zipName);
-        args.putStringArrayList("_NUMERO_PARCOURS", numeroParcours);
-        args.putStringArrayList("_TITRE", titre);
-        args.putStringArrayList("_DESCRIPTION", description);
-        args.putStringArrayList("_DEPARTEMENT", departement);
+        args.putStringArrayList("_KEY_ID", pKeyId);
+        args.putStringArrayList("_URI", pUri);
+        args.putStringArrayList("_ZIP_NAME", pzipName);
+        args.putStringArrayList("_NUMERO_PARCOURS", pNumeroParcours);
+        args.putStringArrayList("_TITRE", ptitre);
+        args.putStringArrayList("_DESCRIPTION", pdescription);
+        args.putStringArrayList("_DEPARTEMENT", pDepartement);
 
        FragmentManager fragmentManager = getFragmentManager();
         ExpandableListParcours fragment = new ExpandableListParcours();
@@ -984,16 +943,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
 
     // télécharge le fichier zip du parcours, le dézippe (lance unzip), puis lance le parcours quand téléchargement terminé
-    protected void telechargerZip(String zipName, String pKeyId, String pNumeroParcours) {
+    protected void telechargerZip(String zipName, final String pNumeroParcours) {
         Uri uri = Uri.parse("http://insensa.fr/appli_decouverte/" + zipName);
         String serviceString = Context.DOWNLOAD_SERVICE;
         final DownloadManager downloadManagerZip;
         downloadManagerZip = (DownloadManager)getSystemService(serviceString);
         final DownloadManager.Request request = new DownloadManager.Request(uri);
-        final String keyId = pKeyId;
-        final String numeroParcours = pNumeroParcours;
         // précise que les fichiers téléchargés seront stockés dans le dossier numeroParcours du dossier externe de l'application avec le nom zipName
-        request.setDestinationInExternalFilesDir(this, numeroParcours, zipName);
+        request.setDestinationInExternalFilesDir(this, pNumeroParcours, zipName);
 
         final ProgressDialog progressDialog = ProgressDialog.show(this, "Informations", "chargement du parcours", true, true);
         new Thread(new Runnable() {
@@ -1025,7 +982,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
                                 myDonwloadZip.moveToFirst();
                                 if (myDonwloadZip.moveToFirst()) {
-                                    int count = myDonwloadZip.getCount();
                                     // System.out.println("jerome " + " : téléchargement zip terminé : lignes : " + count);
                                     // récupération du nom et de l'URI du fichier
                                     int fileNameIdx = myDonwloadZip.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME);
@@ -1039,7 +995,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                                     System.out.println("jerome" + fileUri);
                                     // dézippe le fichier telechargé
                                     try {
-                                        unzip(fileName, numeroParcours);
+                                        unzip(fileName, pNumeroParcours);
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
@@ -1056,11 +1012,11 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                                 myDonwloadZip.close();
                                 // changement dans la BD pour indiquer que le parcours est installé
                                 ParcoursDataBase parcoursDataBase = new ParcoursDataBase(getApplicationContext());
-                                parcoursDataBase.updateParcoursIsInstalled(numeroParcours, "true");
+                                parcoursDataBase.updateParcoursIsInstalled(pNumeroParcours, "true");
                                 parcoursDataBase.closeDatabase();
                                 progressDialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Téléchargement du parcours réussi", Toast.LENGTH_SHORT).show();
-                                numero_parcours_main = numeroParcours;
+                                numero_parcours_main = pNumeroParcours;
                             }
                         }
                     };
@@ -1068,6 +1024,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                     receiverZipRegistrered=true;
                 }
                 catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
@@ -1080,16 +1037,13 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // à faire, rajouter un paramètre de numéro de parcours concerné, le path changera avec à la place de parcours, parcours1... parcours 2... etc
 
         //  String location = Environment.getExternalStorageDirectory() +"/Android/data/fr.insensa.decouverte_patrimoine.android/files/parcours/";
-        String numeroParcours = pNumeroParcours;
-        String location = Environment.getExternalStorageDirectory() + "/Android" + Environment.getDataDirectory() + "/" + getPackageName() + "/files/" + numeroParcours + "/";
+        String location = Environment.getExternalStorageDirectory() + "/Android" + Environment.getDataDirectory() + "/" + getPackageName() + "/files/" + pNumeroParcours + "/";
         int size;
         byte[] buffer = new byte[1024];
-        File f = new File(location);
         System.out.println("jerome" + "début unzip");
-        String zipFile = pzipFile;
 
-        System.out.println("jerome" + zipFile);
-        ZipInputStream zis = new ZipInputStream(new BufferedInputStream((new FileInputStream(zipFile))));
+        System.out.println("jerome" + pzipFile);
+        ZipInputStream zis = new ZipInputStream(new BufferedInputStream((new FileInputStream(pzipFile))));
         try {
             ZipEntry ze;
             while ((ze = zis.getNextEntry()) != null) {
@@ -1115,7 +1069,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             zis.close();
             System.out.println("jerome " + " dézippage terminé, lancement du jeu");
             // récupérer son Json et inscrire les valeurs dans la BD
-            writeJsonParcoursInDataBase(numeroParcours);
+            writeJsonParcoursInDataBase(pNumeroParcours);
             // lancer le jeu
             Toast.makeText(getApplicationContext(), "lancement du jeu", Toast.LENGTH_LONG).show();
             Intent startCircuit = new Intent(getApplicationContext(), CircuitActivity.class);
@@ -1166,7 +1120,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
         else {
             // télécharger les fichiers liés au circuit, les installer et lancer le jeu
-            telechargerZip(zipName, keyId, numeroParcours);
+            telechargerZip(zipName, numeroParcours);
         }
     }
 
@@ -1185,11 +1139,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // à faire lorsque la position de l'utilsateur a changé
     // envoyé par onLocationChanged du LocationListener
     private void updateLocation(Location location) {
-        this.location = location;
-    }
-
-    public  static Location getLocation() {
-        return location;
+        MainActivity.location = location;
     }
 
     public static String getNumero_parcours_main() {
